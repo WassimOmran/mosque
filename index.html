@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Grand Mosque — A Vision Transcendent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES — CHANGE COLORS HERE EASILY
+   ============================================================ */
+:root {
+  --gold:        #C9A84C;
+  --gold-light:  #E8C97A;
+  --gold-dim:    #8A6A2A;
+  --bg:          #080A0E;
+  --bg-2:        #0D1017;
+  --bg-3:        #111520;
+  --text:        #EDE8DE;
+  --text-muted:  #8A8070;
+  --white:       #FFFFFF;
+  --accent:      #1A4A3A;
+  --divider:     rgba(201,168,76,0.15);
+  --font-display: 'Cinzel', serif;
+  --font-body:    'Cormorant Garamond', serif;
+  --font-ui:      'Jost', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s;
+}
+.cursor-ring {
+  position: fixed; top: 0; left: 0;
+  width: 36px; height: 36px;
+  border: 1px solid var(--gold-light);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+  opacity: 0.5;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 28px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s, padding 0.4s;
+}
+nav.scrolled {
+  background: rgba(8,10,14,0.92);
+  backdrop-filter: blur(20px);
+  padding: 16px 60px;
+  border-bottom: 1px solid var(--divider);
+}
+.nav-logo { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; }
+.nav-logo span { color: var(--text-muted); }
+.nav-links { display: flex; gap: 40px; list-style: none; }
+.nav-links a { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; position: relative; }
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 10px 26px; text-decoration: none; transition: background 0.3s; }
+.nav-cta:hover { background: var(--gold-light); }
+
+/* ── HERO ── */
+#hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,74,58,0.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%), var(--bg); }
+.hero-pattern { position: absolute; inset: 0; opacity: 0.045; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='120' height='120'%3E%3Cpolygon points='60,5 115,32.5 115,87.5 60,115 5,87.5 5,32.5' fill='none' stroke='%23C9A84C' stroke-width='0.8'/%3E%3Cpolygon points='60,20 100,42 100,78 60,100 20,78 20,42' fill='none' stroke='%23C9A84C' stroke-width='0.4'/%3E%3Cline x1='60' y1='5' x2='60' y2='115' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='5' y1='32.5' x2='115' y2='87.5' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='115' y1='32.5' x2='5' y2='87.5' stroke='%23C9A84C' stroke-width='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)'/%3E%3C/svg%3E"); }
+
+.mosque-silhouette { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1200px; opacity: 0.07; pointer-events: none; }
+
+.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 40px; }
+.hero-eyebrow { font-family: var(--font-ui); font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; opacity: 0; animation: fadeUp 1s 0.3s forwards; display: block; }
+.hero-title { font-family: var(--font-display); font-size: clamp(3.2rem, 8vw, 7rem); font-weight: 600; line-height: 1.0; color: var(--text); letter-spacing: 0.04em; margin-bottom: 12px; opacity: 0; animation: fadeUp 1.1s 0.5s forwards; }
+.hero-title em { font-style: italic; font-weight: 400; color: var(--gold); display: block; }
+.hero-sub { font-family: var(--font-body); font-size: 1.25rem; font-weight: 300; color: var(--text-muted); font-style: italic; margin: 28px 0 48px; opacity: 0; animation: fadeUp 1s 0.8s forwards; }
+.hero-divider { width: 120px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 48px; opacity: 0; animation: fadeIn 1s 1.1s forwards; }
+.hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
+.btn-primary { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; background: var(--gold); color: var(--bg); padding: 16px 40px; text-decoration: none; transition: all 0.3s; position: relative; overflow: hidden; }
+.btn-primary::before { content:''; position:absolute; inset:0; background: var(--gold-light); transform: translateX(-100%); transition: transform 0.3s ease; }
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-secondary { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid var(--gold-dim); color: var(--gold); padding: 16px 40px; text-decoration: none; transition: all 0.3s; }
+.btn-secondary:hover { background: rgba(201,168,76,0.08); }
+
+.scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeIn 1s 2s forwards; }
+.scroll-indicator span { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); }
+.scroll-line { width: 1px; height: 60px; background: linear-gradient(180deg, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+
+.hero-stats { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; border-top: 1px solid var(--divider); background: rgba(8,10,14,0.6); backdrop-filter: blur(10px); opacity: 0; animation: fadeIn 1s 1.8s forwards; }
+.hero-stat { padding: 24px 60px; text-align: center; border-right: 1px solid var(--divider); }
+.hero-stat:last-child { border-right: none; }
+.hero-stat-num { font-family: var(--font-display); font-size: 2rem; color: var(--gold); font-weight: 600; display: block; }
+.hero-stat-label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); }
+
+/* ── SHARED ── */
+section { padding: 140px 0; position: relative; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+.section-eyebrow { font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+.section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 600; line-height: 1.1; color: var(--text); margin-bottom: 24px; }
+.section-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+.section-line { width: 80px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); margin-bottom: 40px; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── VISION ── */
+#vision { background: var(--bg-2); }
+.vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.vision-image-wrap { position: relative; }
+.vision-img-placeholder { width: 100%; aspect-ratio: 4/5; background: var(--bg-3); border: 1px solid var(--divider); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; position: relative; overflow: hidden; }
+.vision-img-placeholder::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%); }
+.placeholder-icon { font-size: 3rem; opacity: 0.3; }
+.placeholder-text { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+.vision-img-corner { position: absolute; width: 40px; height: 40px; border-color: var(--gold); border-style: solid; opacity: 0.5; }
+.corner-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.corner-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.corner-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.corner-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+.vision-badge { position: absolute; bottom: -24px; right: -24px; width: 120px; height: 120px; background: var(--gold); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.vision-badge-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--bg); line-height: 1; }
+.vision-badge-text { font-family: var(--font-ui); font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); text-align: center; }
+.vision-body p { color: var(--text-muted); font-size: 1.1rem; font-style: italic; margin-bottom: 20px; }
+.vision-body p:first-of-type { font-size: 1.3rem; color: var(--text); font-style: normal; }
+.vision-features { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.vision-feat { padding: 20px; border: 1px solid var(--divider); background: rgba(201,168,76,0.02); transition: border-color 0.3s, background 0.3s; }
+.vision-feat:hover { border-color: var(--gold-dim); background: rgba(201,168,76,0.05); }
+.vision-feat-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.vision-feat-title { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.vision-feat-text { font-size: 0.9rem; color: var(--text-muted); }
+
+/* ── ARCHITECTURE ── */
+#architecture { background: var(--bg); }
+.arch-intro { max-width: 640px; margin-bottom: 80px; }
+.arch-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
+.arch-card { background: var(--bg-3); border: 1px solid var(--divider); position: relative; overflow: hidden; cursor: pointer; transition: border-color 0.4s; }
+.arch-card:hover { border-color: var(--gold-dim); }
+.arch-card:hover .arch-overlay { opacity: 1; }
+.arch-card:hover .arch-card-img-placeholder { transform: scale(1.04); }
+.arch-card-img-placeholder { width: 100%; aspect-ratio: 16/10; background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%); display: flex; align-items: center; justify-content: center; transition: transform 0.6s ease; font-size: 3rem; opacity: 0.15; overflow: hidden; }
+.arch-card.large .arch-card-img-placeholder { aspect-ratio: 4/3; font-size: 5rem; }
+.arch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,10,14,0.9) 0%, transparent 50%); opacity: 0.7; transition: opacity 0.4s; }
+.arch-card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; z-index: 2; }
+.arch-card-label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.arch-card-name { font-family: var(--font-display); font-size: 1.2rem; color: var(--text); }
+.arch-card.large .arch-card-name { font-size: 1.6rem; }
+.arch-tag { position: absolute; top: 20px; right: 20px; background: var(--gold); color: var(--bg); font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 12px; }
+.arch-card:nth-child(1) { grid-row: 1 / 3; }
+.arch-card:nth-child(2) { grid-column: 2; }
+.arch-card:nth-child(3) { grid-column: 3; }
+.arch-card:nth-child(4) { grid-column: 2 / 4; }
+
+/* ── TIMELINE ── */
+#timeline { background: var(--bg-2); overflow: hidden; }
+.timeline-intro { max-width: 560px; margin-bottom: 80px; }
+.timeline-track { position: relative; padding-left: 0; }
+.timeline-line { position: absolute; top: 32px; left: 0; right: 0; height: 1px; background: var(--divider); }
+.timeline-progress { position: absolute; top: 32px; left: 0; height: 1px; background: linear-gradient(90deg, var(--gold), var(--gold-dim)); width: 0%; transition: width 1.5s ease; }
+.timeline-items { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; padding-top: 0; }
+.timeline-item { padding-top: 64px; padding-right: 24px; position: relative; }
+.timeline-dot { position: absolute; top: 22px; left: 0; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gold-dim); background: var(--bg-2); transition: all 0.4s; z-index: 2; }
+.timeline-item.done .timeline-dot { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 20px rgba(201,168,76,0.5); }
+.timeline-item.current .timeline-dot { border-color: var(--gold); box-shadow: 0 0 0 6px rgba(201,168,76,0.15); animation: pulse 2s ease-in-out infinite; }
+.timeline-phase { font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.timeline-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); margin-bottom: 8px; }
+.timeline-item.done .timeline-title { color: var(--text-muted); }
+.timeline-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.timeline-date { font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gold-dim); margin-top: 12px; }
+.timeline-status { display: inline-block; margin-top: 10px; font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 10px; }
+.status-done { color: var(--gold); border: 1px solid var(--gold-dim); }
+.status-active { color: var(--bg); background: var(--gold); }
+.status-pending { color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1); }
+
+/* ── INVESTMENT ── */
+#investment { background: var(--bg); }
+.invest-intro { max-width: 600px; margin-bottom: 80px; }
+.invest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--divider); border: 1px solid var(--divider); margin-bottom: 80px; }
+.invest-card { background: var(--bg); padding: 48px 40px; transition: background 0.4s; position: relative; overflow: hidden; }
+.invest-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background 0.4s; }
+.invest-card:hover { background: var(--bg-3); }
+.invest-card:hover::before { background: var(--gold); }
+.invest-card.featured { background: var(--bg-3); }
+.invest-card.featured::before { background: var(--gold); }
+.invest-tier { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+.invest-amount { font-family: var(--font-display); font-size: 2.4rem; color: var(--gold); font-weight: 600; margin-bottom: 4px; line-height: 1; }
+.invest-range { font-family: var(--font-ui); font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 32px; }
+.invest-perks { list-style: none; margin-bottom: 40px; }
+.invest-perks li { font-size: 0.95rem; color: var(--text-muted); padding: 10px 0; border-bottom: 1px solid var(--divider); display: flex; align-items: flex-start; gap: 12px; }
+.invest-perks li::before { content: '✦'; color: var(--gold); font-size: 0.55rem; flex-shrink: 0; margin-top: 6px; }
+.invest-btn { display: block; text-align: center; font-family: var(--font-ui); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 14px; text-decoration: none; border: 1px solid var(--gold-dim); color: var(--gold); transition: all 0.3s; }
+.invest-btn:hover, .invest-card.featured .invest-btn { background: var(--gold); color: var(--bg); }
+.invest-featured-badge { position: absolute; top: 24px; right: 24px; font-family: var(--font-ui); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--gold); color: var(--bg); padding: 4px 12px; }
+.impact-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 40px; border-top: 1px solid var(--divider); padding-top: 60px; }
+.impact-item { text-align: center; }
+.impact-num { font-family: var(--font-display); font-size: 3rem; color: var(--gold); font-weight: 600; display: block; line-height: 1; }
+.impact-label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; }
+
+/* ── TEAM ── */
+#team { background: var(--bg-2); }
+.team-intro { max-width: 560px; margin-bottom: 80px; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.team-card { text-align: center; transition: transform 0.4s; }
+.team-card:hover { transform: translateY(-8px); }
+.team-avatar { width: 100%; aspect-ratio: 1; background: var(--bg-3); border: 1px solid var(--divider); margin-bottom: 20px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--text-muted); opacity: 0.4; }
+.team-avatar::after { content:''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(8,10,14,0.6)); }
+.team-name { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); margin-bottom: 4px; }
+.team-role { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.team-bio { font-size: 0.88rem; color: var(--text-muted); margin-top: 12px; font-style: italic; }
+
+/* ── CONTACT ── */
+#contact { background: var(--bg); overflow: hidden; position: relative; }
+.contact-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-display); font-size: clamp(8rem, 20vw, 18rem); font-weight: 700; letter-spacing: 0.04em; color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.04); white-space: nowrap; pointer-events: none; user-select: none; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; position: relative; z-index: 2; }
+.contact-info-block { display: flex; flex-direction: column; gap: 40px; }
+.contact-tagline { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.2; color: var(--text); }
+.contact-tagline em { color: var(--gold); font-style: italic; }
+.contact-details { display: flex; flex-direction: column; gap: 20px; }
+.contact-detail { display: flex; align-items: flex-start; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--divider); }
+.contact-detail-icon { width: 40px; height: 40px; border: 1px solid var(--divider); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: var(--gold); }
+.contact-detail-label { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.contact-detail-value { font-size: 1rem; color: var(--text); }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); }
+.form-input, .form-select, .form-textarea { background: var(--bg-3); border: 1px solid var(--divider); color: var(--text); padding: 14px 18px; font-family: var(--font-body); font-size: 1rem; outline: none; transition: border-color 0.3s; appearance: none; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold-dim); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-submit { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; background: var(--gold); color: var(--bg); padding: 18px; border: none; cursor: pointer; transition: background 0.3s; position: relative; overflow: hidden; }
+.form-submit::before { content:''; position:absolute; inset:0; background: var(--gold-light); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+.form-submit:hover::before { transform: scaleX(1); }
+.form-submit span { position: relative; z-index: 1; }
+
+/* ── FOOTER ── */
+footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding: 60px 0 40px; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.footer-logo { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.2em; color: var(--gold); }
+.footer-links { display: flex; gap: 32px; list-style: none; }
+.footer-links a { font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid var(--divider); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.15em; color: var(--text-muted); }
+.footer-arabic { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold-dim); letter-spacing: 0.1em; }
+
+/* ── QUOTE STRIP ── */
+.quote-strip { background: var(--accent); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); padding: 60px 0; text-align: center; position: relative; overflow: hidden; }
+.quote-strip::before { content:''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.04), transparent); }
+.quote-text { font-family: var(--font-body); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; color: var(--text); max-width: 760px; margin: 0 auto 16px; line-height: 1.5; }
+.quote-source { font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 6px rgba(201,168,76,0.15); } 50% { box-shadow: 0 0 0 12px rgba(201,168,76,0.05); } }
+
+/* ── HAMBURGER MENU ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 600;
+}
+.hamburger span {
+  display: block; width: 26px; height: 1.5px;
+  background: var(--gold);
+  transition: transform 0.35s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile overlay menu */
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(8,10,14,0.97);
+  backdrop-filter: blur(24px);
+  z-index: 490;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+.mobile-menu ul li a {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 12px 0;
+  transition: color 0.3s;
+  border-bottom: 1px solid var(--divider);
+}
+.mobile-menu ul li a:hover { color: var(--gold); }
+.mobile-menu-cta {
+  margin-top: 40px;
+  font-family: var(--font-ui); font-size: 0.75rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  background: var(--gold); color: var(--bg);
+  padding: 16px 48px; text-decoration: none;
+}
+.mobile-menu-arabic {
+  position: absolute; bottom: 40px;
+  font-family: var(--font-display); font-size: 1.2rem;
+  color: var(--gold-dim);
+}
+
+/* ── RESPONSIVE — TABLET (≤1024px) ── */
+@media (max-width: 1024px) {
+  .container { padding: 0 40px; }
+  .hero-stat { padding: 20px 36px; }
+  .vision-grid { gap: 60px; }
+  .contact-grid { gap: 60px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .invest-grid { grid-template-columns: 1fr; }
+  .invest-card { padding: 36px 32px; }
+  .impact-row { gap: 24px; }
+}
+
+/* ── RESPONSIVE — MOBILE (≤768px) ── */
+@media (max-width: 768px) {
+  /* Disable custom cursor on touch */
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+
+  /* NAV */
+  nav { padding: 18px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+
+  /* CONTAINER */
+  .container { padding: 0 20px; }
+
+  /* SECTIONS */
+  section { padding: 72px 0; }
+
+  /* HERO */
+  #hero { height: 100svh; min-height: 600px; }
+  .hero-content { padding: 0 20px; }
+  .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.3em; margin-bottom: 20px; }
+  .hero-title { font-size: clamp(2.6rem, 11vw, 4.5rem); }
+  .hero-sub { font-size: 1.05rem; margin: 20px 0 36px; }
+  .hero-btns { flex-direction: column; align-items: center; gap: 14px; }
+  .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; padding: 16px 24px; }
+  .hero-stats { display: none; }
+  .scroll-indicator { bottom: 24px; }
+
+  /* VISION */
+  .vision-grid { grid-template-columns: 1fr; gap: 56px; }
+  .vision-image-wrap { padding-bottom: 30px; /* room for badge */ }
+  .vision-img-placeholder { aspect-ratio: 4/3; }
+  .vision-badge { width: 96px; height: 96px; bottom: -16px; right: 12px; }
+  .vision-badge-num { font-size: 1.5rem; }
+  .vision-features { grid-template-columns: 1fr; gap: 12px; }
+  .vision-body p:first-of-type { font-size: 1.1rem; }
+
+  /* ARCHITECTURE */
+  .arch-grid { grid-template-columns: 1fr; gap: 12px; }
+  .arch-card:nth-child(1),
+  .arch-card:nth-child(2),
+  .arch-card:nth-child(3),
+  .arch-card:nth-child(4) { grid-column: auto; grid-row: auto; }
+  .arch-card.large .arch-card-img-placeholder { aspect-ratio: 16/9; font-size: 3.5rem; }
+  .arch-card-img-placeholder { aspect-ratio: 16/9; }
+  .arch-intro { margin-bottom: 48px; }
+
+  /* TIMELINE — vertical stack */
+  .timeline-intro { margin-bottom: 48px; }
+  .timeline-line, .timeline-progress { display: none; }
+  .timeline-items {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .timeline-item {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 48px;
+    padding-bottom: 36px;
+    border-left: 1px solid var(--divider);
+    margin-left: 10px;
+    position: relative;
+  }
+  .timeline-item:last-child { border-left: 1px solid transparent; padding-bottom: 0; }
+  .timeline-dot {
+    top: 0; left: -10px;
+    width: 20px; height: 20px;
+  }
+  .timeline-item.done .timeline-dot { left: -10px; }
+  .timeline-item.current .timeline-dot { left: -10px; }
+
+  /* INVESTMENT */
+  .invest-grid { grid-template-columns: 1fr; gap: 1px; }
+  .invest-card { padding: 32px 24px; }
+  .invest-amount { font-size: 2rem; }
+  .invest-featured-badge { top: 16px; right: 16px; font-size: 0.55rem; }
+  .impact-row { grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 40px; }
+  .impact-num { font-size: 2.2rem; }
+
+  /* TEAM */
+  .team-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .team-intro { margin-bottom: 48px; }
+  .team-avatar { font-size: 2rem; }
+  .team-name { font-size: 0.95rem; }
+  .team-bio { font-size: 0.82rem; }
+
+  /* CONTACT */
+  .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+  .contact-bg-text { font-size: clamp(4rem, 18vw, 9rem); }
+  .contact-tagline { font-size: clamp(1.7rem, 6vw, 2.2rem); }
+  .form-row { grid-template-columns: 1fr; gap: 16px; }
+  .form-input, .form-select, .form-textarea { font-size: 16px; /* prevent iOS zoom */ }
+
+  /* QUOTE */
+  .quote-strip { padding: 40px 0; }
+  .quote-text { font-size: 1.1rem; padding: 0 8px; }
+
+  /* FOOTER */
+  .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px 24px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-arabic { font-size: 0.95rem; }
+
+  /* SECTION HEADINGS */
+  .section-title { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+}
+
+/* ── RESPONSIVE — SMALL MOBILE (≤400px) ── */
+@media (max-width: 400px) {
+  .hero-title { font-size: clamp(2.2rem, 12vw, 3rem); }
+  .team-grid { grid-template-columns: 1fr; }
+  .impact-row { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .impact-num { font-size: 1.8rem; }
+  .btn-primary, .btn-secondary { max-width: 100%; }
+}
+
+/* ── PAGE LOADER ── */
+#page-loader {
+  position: fixed; inset: 0;
+  background: var(--bg);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1), visibility 0.9s;
+}
+#page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-seal {
+  position: relative;
+  width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+}
+.loader-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: transparent;
+}
+.loader-orbit.o1 {
+  inset: 0;
+  border-width: 1.5px;
+  border-top-color: var(--gold);
+  border-right-color: rgba(201,168,76,0.3);
+  animation: lSpin 1.6s linear infinite;
+}
+.loader-orbit.o2 {
+  inset: 14px;
+  border-width: 1px;
+  border-bottom-color: var(--gold-light);
+  border-left-color: rgba(232,201,122,0.3);
+  animation: lSpin 2.2s linear infinite reverse;
+}
+.loader-orbit.o3 {
+  inset: 28px;
+  border-width: 1px;
+  border-top-color: rgba(201,168,76,0.5);
+  animation: lSpin 1.1s linear infinite;
+}
+.loader-star-svg {
+  width: 44px; height: 44px;
+  animation: lPulse 2s ease-in-out infinite;
+}
+.loader-star-path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: lDraw 1.8s 0.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.loader-badge {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  animation: lFadeSlide 0.8s 0.3s both;
+}
+.loader-divider {
+  width: 48px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  animation: lFadeSlide 0.8s 0.45s both;
+}
+.loader-caption {
+  font-family: var(--font-ui);
+  font-size: 0.55rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  animation: lFadeSlide 0.8s 0.6s both;
+}
+@keyframes lSpin { to { transform: rotate(360deg); } }
+@keyframes lPulse { 0%,100% { opacity:0.6; transform:scale(0.92); } 50% { opacity:1; transform:scale(1.08); } }
+@keyframes lDraw { to { stroke-dashoffset: 0; } }
+@keyframes lFadeSlide { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader" aria-hidden="true">
+  <div class="loader-seal">
+    <div class="loader-orbit o1"></div>
+    <div class="loader-orbit o2"></div>
+    <div class="loader-orbit o3"></div>
+    <svg class="loader-star-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="loader-star-path" points="22,2 26,16 40,16 29,25 33,39 22,30 11,39 15,25 4,16 18,16" stroke="#C9A84C" stroke-width="1.2" fill="rgba(201,168,76,0.07)" stroke-linejoin="round"/>
+      <circle cx="22" cy="22" r="4" fill="#C9A84C" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="loader-badge">The Grand Mosque</div>
+  <div class="loader-divider"></div>
+  <div class="loader-caption">A Vision Transcendent</div>
+</div>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="nav-logo">The Grand <span>Mosque</span></div>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#investment">Investment</a></li>
+    <li><a href="#team">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Invest Now</a>
+  <div class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#vision" class="mobile-link">Vision</a></li>
+    <li><a href="#architecture" class="mobile-link">Architecture</a></li>
+    <li><a href="#timeline" class="mobile-link">Timeline</a></li>
+    <li><a href="#investment" class="mobile-link">Investment</a></li>
+    <li><a href="#team" class="mobile-link">Leadership</a></li>
+    <li><a href="#contact" class="mobile-link">Contact</a></li>
+  </ul>
+  <a href="#contact" class="mobile-menu-cta mobile-link">Invest Now</a>
+  <span class="mobile-menu-arabic">بِسْمِ اللَّهِ</span>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+
+  <svg class="mosque-silhouette" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+    <rect x="60" y="80" width="28" height="320" fill="#C9A84C"/>
+    <polygon points="60,80 88,80 74,20" fill="#C9A84C"/>
+    <ellipse cx="74" cy="56" rx="10" ry="14" fill="#C9A84C"/>
+    <rect x="54" y="140" width="40" height="8" fill="#C9A84C"/>
+    <rect x="54" y="200" width="40" height="8" fill="#C9A84C"/>
+    <rect x="1112" y="80" width="28" height="320" fill="#C9A84C"/>
+    <polygon points="1112,80 1140,80 1126,20" fill="#C9A84C"/>
+    <ellipse cx="1126" cy="56" rx="10" ry="14" fill="#C9A84C"/>
+    <rect x="1106" y="140" width="40" height="8" fill="#C9A84C"/>
+    <rect x="1106" y="200" width="40" height="8" fill="#C9A84C"/>
+    <rect x="200" y="160" width="18" height="240" fill="#C9A84C"/>
+    <polygon points="200,160 218,160 209,110" fill="#C9A84C"/>
+    <rect x="982" y="160" width="18" height="240" fill="#C9A84C"/>
+    <polygon points="982,160 1000,160 991,110" fill="#C9A84C"/>
+    <ellipse cx="600" cy="200" rx="220" ry="200" fill="#C9A84C"/>
+    <rect x="380" y="200" width="440" height="200" fill="#C9A84C"/>
+    <ellipse cx="340" cy="280" rx="100" ry="90" fill="#C9A84C"/>
+    <rect x="240" y="280" width="200" height="120" fill="#C9A84C"/>
+    <ellipse cx="860" cy="280" rx="100" ry="90" fill="#C9A84C"/>
+    <rect x="760" y="280" width="200" height="120" fill="#C9A84C"/>
+    <rect x="100" y="380" width="1000" height="20" fill="#C9A84C"/>
+    <path d="M430,400 Q430,320 490,320 Q550,320 550,400" fill="none" stroke="#080A0E" stroke-width="3"/>
+    <path d="M530,400 Q530,300 600,300 Q670,300 670,400" fill="none" stroke="#080A0E" stroke-width="3"/>
+    <path d="M650,400 Q650,320 710,320 Q770,320 770,400" fill="none" stroke="#080A0E" stroke-width="3"/>
+  </svg>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">⟡ Investor Preview · 2024</span>
+    <h1 class="hero-title">The Grand<em>Mosque</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">A sacred landmark for generations.<br>Where architecture meets devotion.</p>
+    <div class="hero-btns">
+      <a href="#investment" class="btn-primary"><span>Explore Investment</span></a>
+      <a href="#vision" class="btn-secondary">Our Vision</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">15,000</span><span class="hero-stat-label">Worshippers Capacity</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">48,000 m²</span><span class="hero-stat-label">Total Built Area</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">2027</span><span class="hero-stat-label">Completion Year</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">$120M</span><span class="hero-stat-label">Total Project Value</span></div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="container">
+    <div class="vision-grid">
+      <div class="vision-image-wrap reveal">
+        <div class="vision-img-placeholder">
+          <div class="vision-img-corner corner-tl"></div>
+          <div class="vision-img-corner corner-tr"></div>
+          <div class="vision-img-corner corner-bl"></div>
+          <div class="vision-img-corner corner-br"></div>
+          <span class="placeholder-icon">🕌</span>
+          <span class="placeholder-text">Your Image Here</span>
+        </div>
+        <div class="vision-badge">
+          <span class="vision-badge-num">100</span>
+          <span class="vision-badge-text">Year<br>Legacy</span>
+        </div>
+      </div>
+      <div class="vision-body reveal" style="transition-delay:0.2s">
+        <span class="section-eyebrow">Our Vision</span>
+        <h2 class="section-title">Built to last.<br>Designed to <em>inspire</em>.</h2>
+        <div class="section-line"></div>
+        <p>The Grand Mosque is more than a place of worship — it is a cultural monument, a spiritual sanctuary, and a symbol of a community's highest aspirations. Conceived by world-class architects and guided by Islamic principles of beauty, proportion, and light.</p>
+        <p>Every arch, every dome, every courtyard has been deliberately crafted to create an experience that transcends the ordinary and touches the divine.</p>
+        <div class="vision-features">
+          <div class="vision-feat"><div class="vision-feat-icon">✦</div><div class="vision-feat-title">Sacred Design</div><div class="vision-feat-text">Authentic Islamic geometric principles woven into every surface.</div></div>
+          <div class="vision-feat"><div class="vision-feat-icon">◈</div><div class="vision-feat-title">Sustainability</div><div class="vision-feat-text">LEED Gold certified. Solar-powered, zero-waste aspirations.</div></div>
+          <div class="vision-feat"><div class="vision-feat-icon">⬡</div><div class="vision-feat-title">Community Hub</div><div class="vision-feat-text">Library, educational center, and cultural plaza integrated.</div></div>
+          <div class="vision-feat"><div class="vision-feat-icon">◎</div><div class="vision-feat-title">Smart Systems</div><div class="vision-feat-text">Fully automated climate, lighting, and security infrastructure.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-strip">
+  <div class="container">
+    <p class="quote-text reveal">"Indeed, the mosques of Allah are only to be maintained by those who believe in Allah and the Last Day — and those who are truly great."</p>
+    <span class="quote-source reveal" style="transition-delay:0.2s">Quran 9:18</span>
+  </div>
+</div>
+
+<!-- ARCHITECTURE -->
+<section id="architecture">
+  <div class="container">
+    <div class="arch-intro reveal">
+      <span class="section-eyebrow">Architecture Preview</span>
+      <h2 class="section-title">A Vision of <em>Magnificence</em></h2>
+      <div class="section-line"></div>
+      <p style="color:var(--text-muted); font-size:1.05rem;">Each space within The Grand Mosque has been conceived as a distinct experience, unified by a coherent architectural language rooted in Islamic tradition and elevated by contemporary craftsmanship.</p>
+    </div>
+    <div class="arch-grid">
+      <div class="arch-card large reveal">
+        <div class="arch-card-img-placeholder">🕌</div>
+        <div class="arch-overlay"></div>
+        <div class="arch-tag">Flagship</div>
+        <div class="arch-card-info"><div class="arch-card-label">Main Structure</div><div class="arch-card-name">The Grand Dome & Prayer Hall</div></div>
+      </div>
+      <div class="arch-card reveal" style="transition-delay:0.1s">
+        <div class="arch-card-img-placeholder">🌙</div>
+        <div class="arch-overlay"></div>
+        <div class="arch-card-info"><div class="arch-card-label">Vertical</div><div class="arch-card-name">The Four Minarets</div></div>
+      </div>
+      <div class="arch-card reveal" style="transition-delay:0.2s">
+        <div class="arch-card-img-placeholder">⭐</div>
+        <div class="arch-overlay"></div>
+        <div class="arch-card-info"><div class="arch-card-label">Interior</div><div class="arch-card-name">Arabesque Artistry</div></div>
+      </div>
+      <div class="arch-card reveal" style="transition-delay:0.3s">
+        <div class="arch-card-img-placeholder">🌿</div>
+        <div class="arch-overlay"></div>
+        <div class="arch-card-info"><div class="arch-card-label">Outdoor</div><div class="arch-card-name">The Grand Courtyard & Gardens</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div class="timeline-intro reveal">
+      <span class="section-eyebrow">Project Timeline</span>
+      <h2 class="section-title">A Phased Path to <em>Completion</em></h2>
+      <div class="section-line"></div>
+      <p style="color:var(--text-muted);">Five carefully orchestrated phases bring this vision from concept to consecration. Currently in Phase 3 — on schedule, on budget.</p>
+    </div>
+    <div class="timeline-track reveal" style="transition-delay:0.2s">
+      <div class="timeline-line"></div>
+      <div class="timeline-progress" id="timelineProgress"></div>
+      <div class="timeline-items">
+        <div class="timeline-item done">
+          <div class="timeline-dot"></div>
+          <div class="timeline-phase">Phase 01</div>
+          <div class="timeline-title">Concept & Design</div>
+          <div class="timeline-desc">Master planning, architectural blueprints, regulatory approvals, and site surveys completed.</div>
+          <div class="timeline-date">Q1 2023</div>
+          <span class="timeline-status status-done">Completed</span>
+        </div>
+        <div class="timeline-item done">
+          <div class="timeline-dot"></div>
+          <div class="timeline-phase">Phase 02</div>
+          <div class="timeline-title">Site Preparation</div>
+          <div class="timeline-desc">Land clearing, foundation work, infrastructure utilities, and structural groundbreaking.</div>
+          <div class="timeline-date">Q4 2023</div>
+          <span class="timeline-status status-done">Completed</span>
+        </div>
+        <div class="timeline-item current">
+          <div class="timeline-dot"></div>
+          <div class="timeline-phase">Phase 03</div>
+          <div class="timeline-title">Structural Construction</div>
+          <div class="timeline-desc">Main prayer hall structure, dome framework, minaret columns, and support wings rising now.</div>
+          <div class="timeline-date">Q3 2024 → Q2 2025</div>
+          <span class="timeline-status status-active">In Progress</span>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-phase">Phase 04</div>
+          <div class="timeline-title">Interior & Artistry</div>
+          <div class="timeline-desc">Mosaic tiling, calligraphy installations, marble flooring, dome painting, and lighting systems.</div>
+          <div class="timeline-date">Q3 2025 → Q1 2026</div>
+          <span class="timeline-status status-pending">Upcoming</span>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-phase">Phase 05</div>
+          <div class="timeline-title">Inauguration</div>
+          <div class="timeline-desc">Final landscaping, systems testing, soft opening, grand inauguration ceremony and dedication.</div>
+          <div class="timeline-date">Q2 2027</div>
+          <span class="timeline-status status-pending">Upcoming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment">
+  <div class="container">
+    <div class="invest-intro reveal">
+      <span class="section-eyebrow">Investment Opportunities</span>
+      <h2 class="section-title">Partner in a <em>Legacy</em></h2>
+      <div class="section-line"></div>
+      <p style="color:var(--text-muted);">Your contribution builds more than walls — it builds a sacred heritage that will serve generations. Select an investment tier that reflects your vision for community impact.</p>
+    </div>
+    <div class="invest-grid reveal" style="transition-delay:0.2s">
+      <div class="invest-card">
+        <div class="invest-tier">Foundation Partner</div>
+        <div class="invest-amount">$50K</div>
+        <div class="invest-range">Starting from $50,000</div>
+        <ul class="invest-perks">
+          <li>Named brick in the Foundation Wall</li>
+          <li>Donor recognition plaque</li>
+          <li>Exclusive inauguration invitation</li>
+          <li>Quarterly project updates</li>
+          <li>Tax-exempt certification</li>
+        </ul>
+        <a href="#contact" class="invest-btn">Become a Partner</a>
+      </div>
+      <div class="invest-card featured">
+        <div class="invest-featured-badge">Most Impactful</div>
+        <div class="invest-tier">Pillar Benefactor</div>
+        <div class="invest-amount">$250K</div>
+        <div class="invest-range">Starting from $250,000</div>
+        <ul class="invest-perks">
+          <li>Named structural column dedication</li>
+          <li>VIP seat on Advisory Council</li>
+          <li>Permanent engraved wall plaque</li>
+          <li>Private tours during construction</li>
+          <li>Annual benefactor gala access</li>
+          <li>Featured in official publication</li>
+        </ul>
+        <a href="#contact" class="invest-btn">Become a Benefactor</a>
+      </div>
+      <div class="invest-card">
+        <div class="invest-tier">Legacy Patron</div>
+        <div class="invest-amount">$1M+</div>
+        <div class="invest-range">One million and above</div>
+        <ul class="invest-perks">
+          <li>Full room or wing naming rights</li>
+          <li>Founding Board membership</li>
+          <li>Permanent legacy exhibition panel</li>
+          <li>Private access to all facilities</li>
+          <li>Generational legacy documentation</li>
+          <li>Exclusive architectural tour program</li>
+        </ul>
+        <a href="#contact" class="invest-btn">Become a Patron</a>
+      </div>
+    </div>
+    <div class="impact-row reveal" style="transition-delay:0.4s">
+      <div class="impact-item"><span class="impact-num" data-target="15000">0</span><div class="impact-label">Daily Worshippers</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="500">0</span><div class="impact-label">Students Served</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="48">0</span><div class="impact-label">Thousand m² Total Area</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="100">0</span><div class="impact-label">Year Legacy Target</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="team-intro reveal">
+      <span class="section-eyebrow">Leadership & Team</span>
+      <h2 class="section-title">The Minds Behind the <em>Vision</em></h2>
+      <div class="section-line"></div>
+      <p style="color:var(--text-muted);">An assembly of respected scholars, master architects, and seasoned project executives united by one purpose: to build something extraordinary.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal" style="transition-delay:0s"><div class="team-avatar">👤</div><div class="team-name">Sheikh Abdullah Al-Rashid</div><div class="team-role">Spiritual Director</div><div class="team-bio">Renowned Islamic scholar with 30 years guiding major religious projects across the Gulf.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.1s"><div class="team-avatar">👤</div><div class="team-name">Arch. Fatima Al-Zahrani</div><div class="team-role">Lead Architect</div><div class="team-bio">Award-winning architect, Royal Institute Fellow. Specializing in contemporary Islamic design.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.2s"><div class="team-avatar">👤</div><div class="team-name">Eng. Omar Al-Mansouri</div><div class="team-role">Project Director</div><div class="team-bio">Led delivery of 12 landmark buildings across MENA. Expert in large-scale sacred structures.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.3s"><div class="team-avatar">👤</div><div class="team-name">Dr. Noor Al-Salam</div><div class="team-role">Heritage & Art Director</div><div class="team-bio">Curator of Islamic geometric art with international museum exhibitions to her credit.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg-text">MOSQUE</div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info-block reveal">
+        <div>
+          <span class="section-eyebrow">Contact Us</span>
+          <h2 class="contact-tagline">Begin your<br><em>sacred partnership</em><br>today.</h2>
+        </div>
+        <div class="contact-details">
+          <div class="contact-detail"><div class="contact-detail-icon">✉</div><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:invest@grandmosque.org" style="color:inherit;text-decoration:none;">invest@grandmosque.org</a></div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">☏</div><div><div class="contact-detail-label">Phone</div><div class="contact-detail-value">+966 11 000 0000</div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">◎</div><div><div class="contact-detail-label">Location</div><div class="contact-detail-value">Riyadh, Kingdom of Saudi Arabia</div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">◷</div><div><div class="contact-detail-label">Office Hours</div><div class="contact-detail-value">Sun – Thu, 9:00 AM – 5:00 PM</div></div></div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <form class="contact-form" action="https://formsubmit.co/invest@grandmosque.org" method="POST">
+          <input type="hidden" name="_subject" value="New Investment Inquiry — The Grand Mosque">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" placeholder="Your full name" required/></div>
+            <div class="form-group"><label class="form-label">Organization</label><input type="text" name="organization" class="form-input" placeholder="Company / Institution"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Email Address</label><input type="email" name="email" class="form-input" placeholder="email@example.com" required/></div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" name="phone" class="form-input" placeholder="+966 …"/></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Investment Interest</label>
+            <select name="investment_tier" class="form-select">
+              <option value="" disabled selected>Select a tier…</option>
+              <option>Foundation Partner — From $50,000</option>
+              <option>Pillar Benefactor — From $250,000</option>
+              <option>Legacy Patron — $1M+</option>
+              <option>Custom / Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" placeholder="Share your vision, questions, or how you'd like to be involved…"></textarea></div>
+          <button type="submit" class="form-submit"><span>Send Your Inquiry ✦</span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">The Grand Mosque</div>
+      <ul class="footer-links">
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#investment">Investment</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 The Grand Mosque Foundation. All rights reserved.</span>
+      <span class="footer-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Custom Cursor
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+function animCursor(){
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,.invest-card,.arch-card,.team-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='60px';ring.style.height='60px';ring.style.opacity='0.8';});
+  el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.opacity='0.5';});
+});
+
+// Navbar
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>60));
+
+// Scroll reveal
+const revEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.12});
+revEls.forEach(el=>obs.observe(el));
+
+// Counters
+function animCount(el){
+  const target=parseInt(el.getAttribute('data-target'));
+  let c=0; const step=target/120;
+  const t=setInterval(()=>{c+=step;if(c>=target){el.textContent=target.toLocaleString();clearInterval(t);}else{el.textContent=Math.floor(c).toLocaleString();}},16);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);cObs.unobserve(e.target);}});
+},{threshold:0.5});
+document.querySelectorAll('.impact-num[data-target]').forEach(el=>cObs.observe(el));
+
+// Timeline progress
+const tlp=document.getElementById('timelineProgress');
+const tlObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)tlp.style.width='40%';});
+},{threshold:0.3});
+if(tlp)tlObs.observe(tlp);
+
+// Hero parallax
+const heroPattern = document.querySelector('.hero-pattern');
+window.addEventListener('scroll', () => {
+  if (heroPattern) heroPattern.style.transform = `translateY(${scrollY * 0.15}px)`;
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// Page Loader
+window.addEventListener('load', () => {
+  const loader = document.getElementById('page-loader');
+  if (loader) setTimeout(() => loader.classList.add('hidden'), 400);
+});
+</script>
+</body>
+</html>
