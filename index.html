@@ -47,7 +47,7 @@ body {
   background: var(--gold);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10002;
   transform: translate(-50%,-50%);
   transition: transform 0.1s;
 }
@@ -57,7 +57,7 @@ body {
   border: 1px solid var(--gold-light);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 10001;
   transform: translate(-50%,-50%);
   transition: width 0.3s, height 0.3s, opacity 0.3s;
   opacity: 0.5;
@@ -1355,8 +1355,8 @@ if (!('ontouchstart' in window)) {
   });
 }
 
-// Page Loader — cinematic 5-6 second reveal
-window.addEventListener('load', () => {
+// Page Loader — cinematic 5-6 second reveal (starts immediately)
+(function() {
   const loader = document.getElementById('page-loader');
   const pctEl  = document.getElementById('loaderPercent');
   if (!loader) return;
@@ -1368,9 +1368,9 @@ window.addEventListener('load', () => {
     if (pctEl) pctEl.textContent = p + '%';
     if (p < 100) requestAnimationFrame(tickPct);
   })();
-  // Fade out loader after 5.4s (CSS progress finishes at 5.3s)
+  // Fade out loader after 5.4s
   setTimeout(() => loader.classList.add('hidden'), 5400);
-});
+})();
 
 // Language Switcher
 const langBtn = document.getElementById('langToggle');
