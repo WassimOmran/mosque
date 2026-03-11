@@ -103,7 +103,7 @@ nav.scrolled {
 
 /* ── HERO ── */
 #hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,74,58,0.18) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%), var(--bg); }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,10,14,0.62) 0%, rgba(8,10,14,0.28) 48%, rgba(8,10,14,0.88) 100%), url('https://images.unsplash.com/photo-1564769625561-e8f4e57cb1d4?auto=format&fit=crop&w=1920&q=80') center 30%/cover no-repeat; }
 .hero-pattern { position: absolute; inset: 0; opacity: 0.045; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='120' height='120'%3E%3Cpolygon points='60,5 115,32.5 115,87.5 60,115 5,87.5 5,32.5' fill='none' stroke='%23C9A84C' stroke-width='0.8'/%3E%3Cpolygon points='60,20 100,42 100,78 60,100 20,78 20,42' fill='none' stroke='%23C9A84C' stroke-width='0.4'/%3E%3Cline x1='60' y1='5' x2='60' y2='115' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='5' y1='32.5' x2='115' y2='87.5' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='115' y1='32.5' x2='5' y2='87.5' stroke='%23C9A84C' stroke-width='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)'/%3E%3C/svg%3E"); }
 
 .mosque-silhouette { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1200px; opacity: 0.07; pointer-events: none; }
@@ -146,10 +146,10 @@ section { padding: 140px 0; position: relative; }
 #vision { background: var(--bg-2); }
 .vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
 .vision-image-wrap { position: relative; }
-.vision-img-placeholder { width: 100%; aspect-ratio: 4/5; background: var(--bg-3); border: 1px solid var(--divider); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; position: relative; overflow: hidden; }
-.vision-img-placeholder::before { content:''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%); }
-.placeholder-icon { font-size: 3rem; opacity: 0.3; }
-.placeholder-text { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+.vision-img-placeholder { width: 100%; aspect-ratio: 4/5; background: var(--bg-3); border: 1px solid var(--divider); position: relative; overflow: hidden; display: block; }
+.vision-img-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
+.vision-img-placeholder:hover img { transform: scale(1.04); }
+.vision-img-placeholder::after { content:''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,10,14,0.4) 0%, transparent 55%); pointer-events: none; }
 .vision-img-corner { position: absolute; width: 40px; height: 40px; border-color: var(--gold); border-style: solid; opacity: 0.5; }
 .corner-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
 .corner-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
@@ -174,9 +174,10 @@ section { padding: 140px 0; position: relative; }
 .arch-card { background: var(--bg-3); border: 1px solid var(--divider); position: relative; overflow: hidden; cursor: pointer; transition: border-color 0.4s; }
 .arch-card:hover { border-color: var(--gold-dim); }
 .arch-card:hover .arch-overlay { opacity: 1; }
-.arch-card:hover .arch-card-img-placeholder { transform: scale(1.04); }
-.arch-card-img-placeholder { width: 100%; aspect-ratio: 16/10; background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%); display: flex; align-items: center; justify-content: center; transition: transform 0.6s ease; font-size: 3rem; opacity: 0.15; overflow: hidden; }
-.arch-card.large .arch-card-img-placeholder { aspect-ratio: 4/3; font-size: 5rem; }
+.arch-card:hover .arch-card-img-placeholder img { transform: scale(1.06); }
+.arch-card-img-placeholder { width: 100%; aspect-ratio: 16/10; background: var(--bg-3); overflow: hidden; }
+.arch-card-img-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.65s ease; }
+.arch-card.large .arch-card-img-placeholder { aspect-ratio: 4/3; }
 .arch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,10,14,0.9) 0%, transparent 50%); opacity: 0.7; transition: opacity 0.4s; }
 .arch-card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; z-index: 2; }
 .arch-card-label { font-family: var(--font-ui); font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
@@ -286,6 +287,19 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 .quote-text { font-family: var(--font-body); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; color: var(--text); max-width: 760px; margin: 0 auto 16px; line-height: 1.5; }
 .quote-source { font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
 
+/* ── COMMUNITY SERVICES ── */
+#community { background: var(--bg); }
+.community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.comm-card { padding: 36px 28px; border: 1px solid var(--divider); background: rgba(201,168,76,0.02); transition: border-color 0.3s, background 0.3s, transform 0.3s; position: relative; overflow: hidden; text-align: center; }
+.comm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background 0.3s; }
+.comm-card:hover { border-color: var(--gold-dim); background: rgba(201,168,76,0.05); transform: translateY(-5px); }
+.comm-card:hover::before { background: var(--gold); }
+.comm-icon { font-size: 2.2rem; margin-bottom: 18px; line-height: 1; }
+.comm-name { font-family: var(--font-display); font-size: 1.05rem; color: var(--text); margin-bottom: 10px; letter-spacing: 0.03em; }
+.comm-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; font-style: italic; }
+/* Sadaqah jariyah framing */
+.sadaqah-label { display: block; font-family: var(--font-display); font-size: 1.2rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 18px; font-style: italic; opacity: 0.85; }
+
 /* ── KEYFRAMES ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -366,6 +380,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 /* ── RESPONSIVE — TABLET (≤1024px) ── */
 @media (max-width: 1024px) {
   .container { padding: 0 40px; }
+  .nav-links { gap: 26px; }
   .hero-stat { padding: 20px 36px; }
   .vision-grid { gap: 60px; }
   .contact-grid { gap: 60px; }
@@ -421,7 +436,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   .arch-card:nth-child(2),
   .arch-card:nth-child(3),
   .arch-card:nth-child(4) { grid-column: auto; grid-row: auto; }
-  .arch-card.large .arch-card-img-placeholder { aspect-ratio: 16/9; font-size: 3.5rem; }
+  .arch-card.large .arch-card-img-placeholder { aspect-ratio: 16/9; }
   .arch-card-img-placeholder { aspect-ratio: 16/9; }
   .arch-intro { margin-bottom: 48px; }
 
@@ -483,6 +498,10 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 
   /* SECTION HEADINGS */
   .section-title { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+
+  /* COMMUNITY */
+  .community-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .comm-card { padding: 24px 18px; }
 }
 
 /* ── RESPONSIVE — SMALL MOBILE (≤400px) ── */
@@ -492,6 +511,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   .impact-row { grid-template-columns: 1fr 1fr; gap: 16px; }
   .impact-num { font-size: 1.8rem; }
   .btn-primary, .btn-secondary { max-width: 100%; }
+  .community-grid { grid-template-columns: 1fr; }
 }
 
 /* ── PAGE LOADER ── */
@@ -752,6 +772,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#investment">Investment</a></li>
     <li><a href="#team">Leadership</a></li>
+    <li><a href="#community">Community</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Invest Now</a>
@@ -768,6 +789,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     <li><a href="#timeline" class="mobile-link">Timeline</a></li>
     <li><a href="#investment" class="mobile-link">Investment</a></li>
     <li><a href="#team" class="mobile-link">Leadership</a></li>
+    <li><a href="#community" class="mobile-link">Community</a></li>
     <li><a href="#contact" class="mobile-link">Contact</a></li>
   </ul>
   <a href="#contact" class="mobile-menu-cta mobile-link">Invest Now</a>
@@ -824,7 +846,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   </svg>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">⟡ Investor Preview · 2026</span>
+    <span class="hero-eyebrow">⟡ Investor Preview · 2026 &nbsp;·&nbsp; 1447 هـ</span>
     <h1 class="hero-title">The Grand<em>Mosque</em></h1>
     <div class="hero-divider"></div>
     <p class="hero-sub">A sacred landmark for generations.<br>Where architecture meets devotion.</p>
@@ -853,12 +875,11 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     <div class="vision-grid">
       <div class="vision-image-wrap reveal">
         <div class="vision-img-placeholder">
+          <img src="https://images.unsplash.com/photo-1471922619906-e3b6aa3bbe41?auto=format&fit=crop&w=900&q=80" alt="Grand Mosque interior archway" loading="lazy">
           <div class="vision-img-corner corner-tl"></div>
           <div class="vision-img-corner corner-tr"></div>
           <div class="vision-img-corner corner-bl"></div>
           <div class="vision-img-corner corner-br"></div>
-          <span class="placeholder-icon">🕌</span>
-          <span class="placeholder-text">Your Image Here</span>
         </div>
         <div class="vision-badge">
           <span class="vision-badge-num">100</span>
@@ -901,23 +922,23 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     </div>
     <div class="arch-grid">
       <div class="arch-card large reveal">
-        <div class="arch-card-img-placeholder">🕌</div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=1200&q=80" alt="The Grand Dome and Prayer Hall" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-tag">Flagship</div>
         <div class="arch-card-info"><div class="arch-card-label">Main Structure</div><div class="arch-card-name">The Grand Dome & Prayer Hall</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.1s">
-        <div class="arch-card-img-placeholder">🌙</div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1542223616-00ce5e032d2f?auto=format&fit=crop&w=700&q=80" alt="The Four Minarets" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-card-info"><div class="arch-card-label">Vertical</div><div class="arch-card-name">The Four Minarets</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.2s">
-        <div class="arch-card-img-placeholder">⭐</div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1585036156171-384164a8ca16?auto=format&fit=crop&w=700&q=80" alt="Arabesque Interior Artistry" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-card-info"><div class="arch-card-label">Interior</div><div class="arch-card-name">Arabesque Artistry</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.3s">
-        <div class="arch-card-img-placeholder">🌿</div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1584515933487-779ad7a47bb4?auto=format&fit=crop&w=900&q=80" alt="The Grand Courtyard and Gardens" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-card-info"><div class="arch-card-label">Outdoor</div><div class="arch-card-name">The Grand Courtyard & Gardens</div></div>
       </div>
@@ -990,7 +1011,8 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
       <span class="section-eyebrow">Investment Opportunities</span>
       <h2 class="section-title">Partner in a <em>Legacy</em></h2>
       <div class="section-line"></div>
-      <p style="color:var(--text-muted);">Your contribution builds more than walls — it builds a sacred heritage that will serve generations. Select an investment tier that reflects your vision for community impact.</p>
+      <em class="sadaqah-label">صدقة جارية &mdash; A Perpetual Charity</em>
+      <p style="color:var(--text-muted);">Your contribution is an act of <em>Sadaqah Jariyah</em> — a perpetual charity whose rewards endure long after this lifetime. More than an investment, it is a legacy of faith, community, and devotion. Select a tier that reflects your vision for this sacred endowment.</p>
     </div>
     <div class="invest-grid reveal" style="transition-delay:0.2s">
       <div class="invest-card">
@@ -1063,6 +1085,50 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   </div>
 </section>
 
+<!-- COMMUNITY SERVICES -->
+<section id="community">
+  <div class="container">
+    <div class="reveal" style="max-width:640px; margin-bottom:72px;">
+      <span class="section-eyebrow">Community Life</span>
+      <h2 class="section-title">A Living Centre of <em>Faith &amp; Culture</em></h2>
+      <div class="section-line"></div>
+      <p style="color:var(--text-muted);">The Grand Mosque will be open every day of the year, serving as the spiritual and cultural heartbeat of the community — offering prayer, education, family services, and interfaith engagement for all.</p>
+    </div>
+    <div class="community-grid">
+      <div class="comm-card reveal" style="transition-delay:0s">
+        <div class="comm-icon">🕋</div>
+        <div class="comm-name">Five Daily Prayers</div>
+        <div class="comm-text">Congregational Salah held in the grand hall, welcoming up to 15,000 worshippers for every prayer.</div>
+      </div>
+      <div class="comm-card reveal" style="transition-delay:0.08s">
+        <div class="comm-icon">📖</div>
+        <div class="comm-name">Islamic Education</div>
+        <div class="comm-text">Quranic memorisation, Arabic language, Fiqh, and Islamic sciences for children, youth, and adults.</div>
+      </div>
+      <div class="comm-card reveal" style="transition-delay:0.16s">
+        <div class="comm-icon">🌙</div>
+        <div class="comm-name">Ramadan &amp; Eid</div>
+        <div class="comm-text">Tarawih, Qiyam al-Layl, community Iftar, and Eid celebrations uniting thousands in joyful worship.</div>
+      </div>
+      <div class="comm-card reveal" style="transition-delay:0.24s">
+        <div class="comm-icon">🤍</div>
+        <div class="comm-name">Family &amp; Youth</div>
+        <div class="comm-text">Nikah ceremonies, pre-marital counselling, sisters&rsquo; programs, and youth mentorship initiatives.</div>
+      </div>
+      <div class="comm-card reveal" style="transition-delay:0.32s">
+        <div class="comm-icon">📚</div>
+        <div class="comm-name">Research Library</div>
+        <div class="comm-text">A curated Islamic library housing rare manuscripts, scholarly works, and a comprehensive digital archive.</div>
+      </div>
+      <div class="comm-card reveal" style="transition-delay:0.4s">
+        <div class="comm-icon">🌍</div>
+        <div class="comm-name">Cultural Events</div>
+        <div class="comm-text">Exhibitions, public lectures, interfaith dialogues, and international Islamic heritage showcases.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-bg-text">MOSQUE</div>
@@ -1122,6 +1188,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
         <li><a href="#timeline">Timeline</a></li>
         <li><a href="#investment">Investment</a></li>
         <li><a href="#team">Team</a></li>
+        <li><a href="#community">Community</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
