@@ -122,7 +122,7 @@ nav.scrolled {
 .btn-secondary { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid var(--gold-dim); color: var(--gold); padding: 16px 40px; text-decoration: none; transition: all 0.3s; }
 .btn-secondary:hover { background: rgba(201,168,76,0.08); }
 
-.scroll-indicator { position: absolute; bottom: 152px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeIn 1s 2s forwards; z-index: 3; }
+.scroll-indicator { position: absolute; bottom: 88px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeIn 1s 2s forwards; z-index: 3; }
 .scroll-indicator span { font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); }
 .scroll-line { width: 1px; height: 60px; background: linear-gradient(180deg, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
 
@@ -597,8 +597,8 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   animation: lPulse 2.2s ease-in-out infinite;
 }
 .loader-star-path {
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
+  stroke-dasharray: 115;
+  stroke-dashoffset: 115;
   animation: lDraw 2.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
 }
 
@@ -779,8 +779,12 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     <div class="loader-orbit o2"></div>
     <div class="loader-orbit o3"></div>
     <svg class="loader-star-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon class="loader-star-path" points="22,2 26,16 40,16 29,25 33,39 22,30 11,39 15,25 4,16 18,16" stroke="#C9A84C" stroke-width="1.2" fill="rgba(201,168,76,0.07)" stroke-linejoin="round"/>
-      <circle cx="22" cy="22" r="4" fill="#C9A84C" opacity="0.5"/>
+      <!-- Crescent moon (outer r=15 center 22,22 + inner r=12 center 16,22) -->
+      <path class="loader-star-path" d="M 12.25 10.60 A 15 15 0 1 1 12.25 33.40 A 12 12 0 1 0 12.25 10.60 Z"
+        stroke="#C9A84C" stroke-width="1.3" fill="rgba(201,168,76,0.1)" stroke-linejoin="round"/>
+      <!-- Star beside crescent -->
+      <polygon points="36,8 37.2,11.6 41,11.6 38,13.8 39.2,17.4 36,15.2 32.8,17.4 34,13.8 31,11.6 34.8,11.6"
+        fill="#C9A84C" opacity="0.75" transform="scale(0.7) translate(15,4)"/>
     </svg>
   </div>
   <div class="loader-badge">The Grand Mosque</div>
