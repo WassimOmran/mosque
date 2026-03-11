@@ -727,22 +727,23 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 @media (max-width: 768px) { .lang-toggle { padding: 6px 10px; font-size: 0.6rem; gap: 5px; } nav { gap: 14px; } }
 
 /* ── ARABIC TYPOGRAPHY ── */
-[lang="ar"] body { font-family: 'Tajawal', sans-serif; line-height: 1.9; }
+[lang="ar"] body { font-family: 'Tajawal', sans-serif; line-height: 1.9; font-size: 1.1rem; }
 [lang="ar"] .hero-title, [lang="ar"] .section-title, [lang="ar"] .contact-tagline,
 [lang="ar"] .arch-card-name, [lang="ar"] .timeline-title, [lang="ar"] .invest-amount,
 [lang="ar"] .team-name, [lang="ar"] .footer-logo, [lang="ar"] .nav-logo,
 [lang="ar"] .quote-text, [lang="ar"] .comm-name { font-family: 'Amiri', serif; font-style: normal; }
 [lang="ar"] .hero-title em, [lang="ar"] .section-title em,
 [lang="ar"] .contact-tagline em { font-style: normal; }
-[lang="ar"] .section-title { line-height: 1.75; }
-[lang="ar"] .hero-title { line-height: 1.55; }
+[lang="ar"] .section-title { line-height: 1.75; font-size: clamp(2.4rem, 5vw, 4rem); }
+[lang="ar"] .hero-title { line-height: 1.55; font-size: clamp(3.8rem, 9vw, 8rem); }
+[lang="ar"] .contact-tagline { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
 [lang="ar"] .section-eyebrow, [lang="ar"] .hero-eyebrow, [lang="ar"] .form-label,
 [lang="ar"] .invest-tier, [lang="ar"] .timeline-phase, [lang="ar"] .hero-stat-label,
-[lang="ar"] .arch-card-label, [lang="ar"] .team-role, [lang="ar"] .impact-label { font-family: 'Tajawal', sans-serif; letter-spacing: 0.03em; }
+[lang="ar"] .arch-card-label, [lang="ar"] .team-role, [lang="ar"] .impact-label { font-family: 'Tajawal', sans-serif; letter-spacing: 0.03em; font-size: 0.85rem; }
 [lang="ar"] p, [lang="ar"] li, [lang="ar"] .timeline-desc,
-[lang="ar"] .team-bio, [lang="ar"] .comm-text, [lang="ar"] .vision-feat-text { font-family: 'Tajawal', sans-serif; }
+[lang="ar"] .team-bio, [lang="ar"] .comm-text, [lang="ar"] .vision-feat-text { font-family: 'Tajawal', sans-serif; font-size: 1.15rem; }
 [lang="ar"] .vision-body p, [lang="ar"] .hero-sub { font-style: normal; }
-[lang="ar"] .quote-text { font-size: clamp(1.5rem, 3vw, 2.2rem); font-style: normal; }
+[lang="ar"] .quote-text { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-style: normal; }
 
 /* ── RTL LAYOUT OVERRIDES ── */
 [dir="rtl"] .section-line { background: linear-gradient(270deg, var(--gold), transparent); }
