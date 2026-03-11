@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Grand Mosque — A Vision Transcendent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Jost:wght@200;300;400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -717,6 +717,42 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   0%,100% { box-shadow: 0 0 0   0   rgba(201,168,76,0); }
   50%     { box-shadow: 0 0 18px 3px rgba(201,168,76,0.22); }
 }
+
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle { background: transparent; border: 1px solid var(--gold-dim); color: var(--text-muted); font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.1em; padding: 7px 14px; cursor: pointer; transition: border-color 0.3s, color 0.3s; display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.lang-toggle:hover { border-color: var(--gold); color: var(--gold); }
+.lang-toggle[data-active="ar"] .lang-en-label { opacity: 0.4; }
+.lang-toggle[data-active="en"] .lang-ar-label { opacity: 0.4; }
+.lang-sep { opacity: 0.35; }
+@media (max-width: 768px) { .lang-toggle { padding: 6px 10px; font-size: 0.6rem; gap: 5px; } nav { gap: 14px; } }
+
+/* ── ARABIC TYPOGRAPHY ── */
+[lang="ar"] body { font-family: 'Tajawal', sans-serif; line-height: 1.9; }
+[lang="ar"] .hero-title, [lang="ar"] .section-title, [lang="ar"] .contact-tagline,
+[lang="ar"] .arch-card-name, [lang="ar"] .timeline-title, [lang="ar"] .invest-amount,
+[lang="ar"] .team-name, [lang="ar"] .footer-logo, [lang="ar"] .nav-logo,
+[lang="ar"] .quote-text, [lang="ar"] .comm-name { font-family: 'Amiri', serif; font-style: normal; }
+[lang="ar"] .hero-title em, [lang="ar"] .section-title em,
+[lang="ar"] .contact-tagline em { font-style: normal; }
+[lang="ar"] .section-eyebrow, [lang="ar"] .hero-eyebrow, [lang="ar"] .form-label,
+[lang="ar"] .invest-tier, [lang="ar"] .timeline-phase, [lang="ar"] .hero-stat-label,
+[lang="ar"] .arch-card-label, [lang="ar"] .team-role, [lang="ar"] .impact-label { font-family: 'Tajawal', sans-serif; letter-spacing: 0.03em; }
+[lang="ar"] p, [lang="ar"] li, [lang="ar"] .timeline-desc,
+[lang="ar"] .team-bio, [lang="ar"] .comm-text, [lang="ar"] .vision-feat-text { font-family: 'Tajawal', sans-serif; }
+[lang="ar"] .vision-body p, [lang="ar"] .hero-sub { font-style: normal; }
+[lang="ar"] .quote-text { font-size: clamp(1.5rem, 3vw, 2.2rem); font-style: normal; }
+
+/* ── RTL LAYOUT OVERRIDES ── */
+[dir="rtl"] .section-line { background: linear-gradient(270deg, var(--gold), transparent); }
+[dir="rtl"] .vision-badge { right: auto; left: -24px; }
+[dir="rtl"] .arch-tag { left: 20px; right: auto; }
+[dir="rtl"] .invest-featured-badge { left: 24px; right: auto; }
+[dir="rtl"] .hero-divider { margin: 0 auto 48px; }
+@media (max-width: 768px) {
+  [dir="rtl"] .timeline-item { padding-left: 0; padding-right: 48px; border-left: none; border-right: 1px solid var(--divider); margin-left: 0; margin-right: 10px; }
+  [dir="rtl"] .timeline-item:last-child { border-right: 1px solid transparent; }
+  [dir="rtl"] .timeline-dot { left: auto; right: -10px; }
+}
 </style>
 </head>
 <body>
@@ -765,17 +801,22 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 
 <!-- NAVIGATION -->
 <nav id="navbar">
-  <div class="nav-logo">The Grand <span>Mosque</span></div>
+  <div class="nav-logo" data-ar="الجامع <span>الكبير</span>">The Grand <span>Mosque</span></div>
   <ul class="nav-links">
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#architecture">Architecture</a></li>
-    <li><a href="#timeline">Timeline</a></li>
-    <li><a href="#investment">Investment</a></li>
-    <li><a href="#team">Leadership</a></li>
-    <li><a href="#community">Community</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#vision" data-ar="الرؤية">Vision</a></li>
+    <li><a href="#architecture" data-ar="العمارة">Architecture</a></li>
+    <li><a href="#timeline" data-ar="المراحل">Timeline</a></li>
+    <li><a href="#investment" data-ar="الاستثمار">Investment</a></li>
+    <li><a href="#team" data-ar="القيادة">Leadership</a></li>
+    <li><a href="#community" data-ar="المجتمع">Community</a></li>
+    <li><a href="#contact" data-ar="تواصل">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Invest Now</a>
+  <a href="#contact" class="nav-cta" data-ar="استثمر الآن">Invest Now</a>
+  <button class="lang-toggle" id="langToggle" data-active="en" type="button" aria-label="Switch language">
+    <span class="lang-en-label">EN</span>
+    <span class="lang-sep">|</span>
+    <span class="lang-ar-label">عربي</span>
+  </button>
   <div class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </div>
@@ -784,15 +825,15 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <!-- MOBILE MENU OVERLAY -->
 <div class="mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="#vision" class="mobile-link">Vision</a></li>
-    <li><a href="#architecture" class="mobile-link">Architecture</a></li>
-    <li><a href="#timeline" class="mobile-link">Timeline</a></li>
-    <li><a href="#investment" class="mobile-link">Investment</a></li>
-    <li><a href="#team" class="mobile-link">Leadership</a></li>
-    <li><a href="#community" class="mobile-link">Community</a></li>
-    <li><a href="#contact" class="mobile-link">Contact</a></li>
+    <li><a href="#vision" class="mobile-link" data-ar="الرؤية">Vision</a></li>
+    <li><a href="#architecture" class="mobile-link" data-ar="العمارة">Architecture</a></li>
+    <li><a href="#timeline" class="mobile-link" data-ar="المراحل">Timeline</a></li>
+    <li><a href="#investment" class="mobile-link" data-ar="الاستثمار">Investment</a></li>
+    <li><a href="#team" class="mobile-link" data-ar="القيادة">Leadership</a></li>
+    <li><a href="#community" class="mobile-link" data-ar="المجتمع">Community</a></li>
+    <li><a href="#contact" class="mobile-link" data-ar="تواصل">Contact</a></li>
   </ul>
-  <a href="#contact" class="mobile-menu-cta mobile-link">Invest Now</a>
+  <a href="#contact" class="mobile-menu-cta mobile-link" data-ar="استثمر الآن">Invest Now</a>
   <span class="mobile-menu-arabic">بِسْمِ اللَّهِ</span>
 </div>
 
@@ -846,21 +887,21 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   </svg>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">⟡ Investor Preview · 2026 &nbsp;·&nbsp; 1447 هـ</span>
-    <h1 class="hero-title">The Grand<em>Mosque</em></h1>
+    <span class="hero-eyebrow" data-ar="⟡ معاينة المستثمرين &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; 1447 هـ">⟡ Investor Preview · 2026 &nbsp;·&nbsp; 1447 هـ</span>
+    <h1 class="hero-title" data-ar="الجامع<em>الكبير</em>">The Grand<em>Mosque</em></h1>
     <div class="hero-divider"></div>
-    <p class="hero-sub">A sacred landmark for generations.<br>Where architecture meets devotion.</p>
+    <p class="hero-sub" data-ar="معلمٌ مقدس للأجيال القادمة.<br>حيث تلتقي العمارة بالإيمان.">A sacred landmark for generations.<br>Where architecture meets devotion.</p>
     <div class="hero-btns">
-      <a href="#investment" class="btn-primary"><span>Explore Investment</span></a>
-      <a href="#vision" class="btn-secondary">Our Vision</a>
+      <a href="#investment" class="btn-primary"><span data-ar="استكشف الاستثمار">Explore Investment</span></a>
+      <a href="#vision" class="btn-secondary" data-ar="رؤيتنا">Our Vision</a>
     </div>
   </div>
 
   <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">15,000</span><span class="hero-stat-label">Worshippers Capacity</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">48,000 m²</span><span class="hero-stat-label">Total Built Area</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">2027</span><span class="hero-stat-label">Completion Year</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">$120M</span><span class="hero-stat-label">Total Project Value</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">15,000</span><span class="hero-stat-label" data-ar="طاقة استيعاب المصلين">Worshippers Capacity</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">48,000 m²</span><span class="hero-stat-label" data-ar="إجمالي المساحة المبنية">Total Built Area</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">2027</span><span class="hero-stat-label" data-ar="سنة الإتمام">Completion Year</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">$120M</span><span class="hero-stat-label" data-ar="إجمالي قيمة المشروع">Total Project Value</span></div>
   </div>
 
   <div class="scroll-indicator">
@@ -883,15 +924,15 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
         </div>
         <div class="vision-badge">
           <span class="vision-badge-num">100</span>
-          <span class="vision-badge-text">Year<br>Legacy</span>
+          <span class="vision-badge-text" data-ar="عام<br>إرثًا">Year<br>Legacy</span>
         </div>
       </div>
       <div class="vision-body reveal" style="transition-delay:0.2s">
-        <span class="section-eyebrow">Our Vision</span>
-        <h2 class="section-title">Built to last.<br>Designed to <em>inspire</em>.</h2>
+        <span class="section-eyebrow" data-ar="رؤيتنا">Our Vision</span>
+        <h2 class="section-title" data-ar="بُني ليدوم.<br>صُمِّم <em>ليُلهِم</em>.">Built to last.<br>Designed to <em>inspire</em>.</h2>
         <div class="section-line"></div>
-        <p>The Grand Mosque is more than a place of worship — it is a cultural monument, a spiritual sanctuary, and a symbol of a community's highest aspirations. Conceived by world-class architects and guided by Islamic principles of beauty, proportion, and light.</p>
-        <p>Every arch, every dome, every courtyard has been deliberately crafted to create an experience that transcends the ordinary and touches the divine.</p>
+        <p data-ar="الجامع الكبير أكثر من مجرد دار عبادة — إنه صرح حضاري، وملاذ روحي، ورمز لأعلى تطلعات المجتمع. تصوّره معماريون من الطراز العالمي، واسترشد بالمبادئ الإسلامية في الجمال والتناسب والنور.">The Grand Mosque is more than a place of worship — it is a cultural monument, a spiritual sanctuary, and a symbol of a community's highest aspirations. Conceived by world-class architects and guided by Islamic principles of beauty, proportion, and light.</p>
+        <p data-ar="كل قوس وكل قبة وكل فناء صُمِّم بعناية فائقة لخلق تجربة تتجاوز المألوف وتلامس الجوهر الإلهي.">Every arch, every dome, every courtyard has been deliberately crafted to create an experience that transcends the ordinary and touches the divine.</p>
         <div class="vision-features">
           <div class="vision-feat"><div class="vision-feat-icon">✦</div><div class="vision-feat-title">Sacred Design</div><div class="vision-feat-text">Authentic Islamic geometric principles woven into every surface.</div></div>
           <div class="vision-feat"><div class="vision-feat-icon">◈</div><div class="vision-feat-title">Sustainability</div><div class="vision-feat-text">LEED Gold certified. Solar-powered, zero-waste aspirations.</div></div>
@@ -915,32 +956,32 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <section id="architecture">
   <div class="container">
     <div class="arch-intro reveal">
-      <span class="section-eyebrow">Architecture Preview</span>
-      <h2 class="section-title">A Vision of <em>Magnificence</em></h2>
+      <span class="section-eyebrow" data-ar="معاينة العمارة">Architecture Preview</span>
+      <h2 class="section-title" data-ar="رؤيةٌ من <em>العظمة</em>">A Vision of <em>Magnificence</em></h2>
       <div class="section-line"></div>
-      <p style="color:var(--text-muted); font-size:1.05rem;">Each space within The Grand Mosque has been conceived as a distinct experience, unified by a coherent architectural language rooted in Islamic tradition and elevated by contemporary craftsmanship.</p>
+      <p style="color:var(--text-muted); font-size:1.05rem;" data-ar="كل فضاء في الجامع الكبير تصوّر على أنه تجربة فريدة، تجمعها لغة معمارية متجانسة متجذّرة في التراث الإسلامي ومرفوعة بالحرفية المعاصرة.">Each space within The Grand Mosque has been conceived as a distinct experience, unified by a coherent architectural language rooted in Islamic tradition and elevated by contemporary craftsmanship.</p>
     </div>
     <div class="arch-grid">
       <div class="arch-card large reveal">
         <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=1200&q=80" alt="The Grand Dome and Prayer Hall" loading="lazy"></div>
         <div class="arch-overlay"></div>
-        <div class="arch-tag">Flagship</div>
-        <div class="arch-card-info"><div class="arch-card-label">Main Structure</div><div class="arch-card-name">The Grand Dome & Prayer Hall</div></div>
+        <div class="arch-tag" data-ar="الرئيسي">Flagship</div>
+        <div class="arch-card-info"><div class="arch-card-label" data-ar="الهيكل الرئيسي">Main Structure</div><div class="arch-card-name" data-ar="القبّة الكبرى وقاعة الصلاة">The Grand Dome & Prayer Hall</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.1s">
         <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1542223616-00ce5e032d2f?auto=format&fit=crop&w=700&q=80" alt="The Four Minarets" loading="lazy"></div>
         <div class="arch-overlay"></div>
-        <div class="arch-card-info"><div class="arch-card-label">Vertical</div><div class="arch-card-name">The Four Minarets</div></div>
+        <div class="arch-card-info"><div class="arch-card-label" data-ar="عمودي">Vertical</div><div class="arch-card-name" data-ar="المآذن الأربع">The Four Minarets</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.2s">
         <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1585036156171-384164a8ca16?auto=format&fit=crop&w=700&q=80" alt="Arabesque Interior Artistry" loading="lazy"></div>
         <div class="arch-overlay"></div>
-        <div class="arch-card-info"><div class="arch-card-label">Interior</div><div class="arch-card-name">Arabesque Artistry</div></div>
+        <div class="arch-card-info"><div class="arch-card-label" data-ar="الداخل">Interior</div><div class="arch-card-name" data-ar="فن الأرابيسك">Arabesque Artistry</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.3s">
         <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1584515933487-779ad7a47bb4?auto=format&fit=crop&w=900&q=80" alt="The Grand Courtyard and Gardens" loading="lazy"></div>
         <div class="arch-overlay"></div>
-        <div class="arch-card-info"><div class="arch-card-label">Outdoor</div><div class="arch-card-name">The Grand Courtyard & Gardens</div></div>
+        <div class="arch-card-info"><div class="arch-card-label" data-ar="الخارج">Outdoor</div><div class="arch-card-name" data-ar="الفناء الكبير والحدائق">The Grand Courtyard & Gardens</div></div>
       </div>
     </div>
   </div>
@@ -950,10 +991,10 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <section id="timeline">
   <div class="container">
     <div class="timeline-intro reveal">
-      <span class="section-eyebrow">Project Timeline</span>
-      <h2 class="section-title">A Phased Path to <em>Completion</em></h2>
+      <span class="section-eyebrow" data-ar="الجدول الزمني">Project Timeline</span>
+      <h2 class="section-title" data-ar="مسيرة متدرجة نحو <em>الإتمام</em>">A Phased Path to <em>Completion</em></h2>
       <div class="section-line"></div>
-      <p style="color:var(--text-muted);">Five carefully orchestrated phases bring this vision from concept to consecration. Currently in Phase 3 — on schedule, on budget.</p>
+      <p style="color:var(--text-muted);" data-ar="خمس مراحل متأنية تنقل هذه الرؤية من الفكرة إلى التكريس. حاليًا في المرحلة الثالثة — وفق الجدول والميزانية.">Five carefully orchestrated phases bring this vision from concept to consecration. Currently in Phase 3 — on schedule, on budget.</p>
     </div>
     <div class="timeline-track reveal" style="transition-delay:0.2s">
       <div class="timeline-line"></div>
@@ -962,42 +1003,42 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
         <div class="timeline-item done">
           <div class="timeline-dot"></div>
           <div class="timeline-phase">Phase 01</div>
-          <div class="timeline-title">Concept & Design</div>
-          <div class="timeline-desc">Master planning, architectural blueprints, regulatory approvals, and site surveys completed.</div>
+          <div class="timeline-title" data-ar="التصور والتصميم">Concept & Design</div>
+          <div class="timeline-desc" data-ar="التخطيط الشامل، المخططات المعمارية، الموافقات التنظيمية، ومسح الموقع أنجزت.">Master planning, architectural blueprints, regulatory approvals, and site surveys completed.</div>
           <div class="timeline-date">Q1 2023</div>
-          <span class="timeline-status status-done">Completed</span>
+          <span class="timeline-status status-done" data-ar="مكتملة">Completed</span>
         </div>
         <div class="timeline-item done">
           <div class="timeline-dot"></div>
           <div class="timeline-phase">Phase 02</div>
-          <div class="timeline-title">Site Preparation</div>
-          <div class="timeline-desc">Land clearing, foundation work, infrastructure utilities, and structural groundbreaking.</div>
+          <div class="timeline-title" data-ar="تجهيز الموقع">Site Preparation</div>
+          <div class="timeline-desc" data-ar="تسوية الأرض، أعمال الأسس، المرافق التحتية، ووضع حجر الأساس.">Land clearing, foundation work, infrastructure utilities, and structural groundbreaking.</div>
           <div class="timeline-date">Q4 2023</div>
-          <span class="timeline-status status-done">Completed</span>
+          <span class="timeline-status status-done" data-ar="مكتملة">Completed</span>
         </div>
         <div class="timeline-item current">
           <div class="timeline-dot"></div>
           <div class="timeline-phase">Phase 03</div>
-          <div class="timeline-title">Structural Construction</div>
-          <div class="timeline-desc">Main prayer hall structure, dome framework, minaret columns, and support wings rising now.</div>
+          <div class="timeline-title" data-ar="البناء الهيكلي">Structural Construction</div>
+          <div class="timeline-desc" data-ar="هيكل قاعة الصلاة، هيكل القبة، أعمدة المآذن، والأجنحة الداعمة ترتفع الآن.">Main prayer hall structure, dome framework, minaret columns, and support wings rising now.</div>
           <div class="timeline-date">Q3 2024 → Q2 2025</div>
-          <span class="timeline-status status-active">In Progress</span>
+          <span class="timeline-status status-active" data-ar="جارٍ">In Progress</span>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-phase">Phase 04</div>
-          <div class="timeline-title">Interior & Artistry</div>
-          <div class="timeline-desc">Mosaic tiling, calligraphy installations, marble flooring, dome painting, and lighting systems.</div>
+          <div class="timeline-title" data-ar="الداخل والفن">Interior & Artistry</div>
+          <div class="timeline-desc" data-ar="أعمال الفسيفساء، تركيب الخط العربي، الرخام، رسم القبة، وأنظمة الإضاءة.">Mosaic tiling, calligraphy installations, marble flooring, dome painting, and lighting systems.</div>
           <div class="timeline-date">Q3 2025 → Q1 2026</div>
-          <span class="timeline-status status-pending">Upcoming</span>
+          <span class="timeline-status status-pending" data-ar="قادمة">Upcoming</span>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-phase">Phase 05</div>
-          <div class="timeline-title">Inauguration</div>
-          <div class="timeline-desc">Final landscaping, systems testing, soft opening, grand inauguration ceremony and dedication.</div>
+          <div class="timeline-title" data-ar="الافتتاح">Inauguration</div>
+          <div class="timeline-desc" data-ar="أعمال التشجير، اختبارات الأنظمة، الافتتاح التجريبي، وحفل الافتتاح الكبير.">Final landscaping, systems testing, soft opening, grand inauguration ceremony and dedication.</div>
           <div class="timeline-date">Q2 2027</div>
-          <span class="timeline-status status-pending">Upcoming</span>
+          <span class="timeline-status status-pending" data-ar="قادمة">Upcoming</span>
         </div>
       </div>
     </div>
@@ -1008,61 +1049,61 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <section id="investment">
   <div class="container">
     <div class="invest-intro reveal">
-      <span class="section-eyebrow">Investment Opportunities</span>
-      <h2 class="section-title">Partner in a <em>Legacy</em></h2>
+      <span class="section-eyebrow" data-ar="فرص الاستثمار">Investment Opportunities</span>
+      <h2 class="section-title" data-ar="شريكٌ في <em>إرث</em>">Partner in a <em>Legacy</em></h2>
       <div class="section-line"></div>
       <em class="sadaqah-label">صدقة جارية &mdash; A Perpetual Charity</em>
-      <p style="color:var(--text-muted);">Your contribution is an act of <em>Sadaqah Jariyah</em> — a perpetual charity whose rewards endure long after this lifetime. More than an investment, it is a legacy of faith, community, and devotion. Select a tier that reflects your vision for this sacred endowment.</p>
+      <p style="color:var(--text-muted);" data-ar="مساهمتك عمل من أعمال الصدقة الجارية التي يجري ثوابها بعد الوفاة. ما هي إلا إرث من الإيمان، والمجتمع، والتقوى. اختر مستوى يعكس رؤيتك لهذا الوقف المقدس.">Your contribution is an act of <em>Sadaqah Jariyah</em> — a perpetual charity whose rewards endure long after this lifetime. More than an investment, it is a legacy of faith, community, and devotion. Select a tier that reflects your vision for this sacred endowment.</p>
     </div>
     <div class="invest-grid reveal" style="transition-delay:0.2s">
       <div class="invest-card">
-        <div class="invest-tier">Foundation Partner</div>
+        <div class="invest-tier" data-ar="شريك التأسيس">Foundation Partner</div>
         <div class="invest-amount">$50K</div>
-        <div class="invest-range">Starting from $50,000</div>
+        <div class="invest-range" data-ar="ابتداءً من 50,000$">Starting from $50,000</div>
         <ul class="invest-perks">
-          <li>Named brick in the Foundation Wall</li>
-          <li>Donor recognition plaque</li>
-          <li>Exclusive inauguration invitation</li>
-          <li>Quarterly project updates</li>
-          <li>Tax-exempt certification</li>
+          <li data-ar="طوبة باسمك في جدار التأسيس">Named brick in the Foundation Wall</li>
+          <li data-ar="لوحة تكريمية للمتبرع">Donor recognition plaque</li>
+          <li data-ar="دعوة حصرية لحفل الافتتاح">Exclusive inauguration invitation</li>
+          <li data-ar="تحديثات دورية عن تقدم المشروع">Quarterly project updates</li>
+          <li data-ar="شهادة إعفاء ضريبي">Tax-exempt certification</li>
         </ul>
-        <a href="#contact" class="invest-btn">Become a Partner</a>
+        <a href="#contact" class="invest-btn" data-ar="كن شريكًا">Become a Partner</a>
       </div>
       <div class="invest-card featured">
-        <div class="invest-featured-badge">Most Impactful</div>
-        <div class="invest-tier">Pillar Benefactor</div>
+        <div class="invest-featured-badge" data-ar="الأعظم أثرًا">Most Impactful</div>
+        <div class="invest-tier" data-ar="راعي الأعمدة">Pillar Benefactor</div>
         <div class="invest-amount">$250K</div>
-        <div class="invest-range">Starting from $250,000</div>
+        <div class="invest-range" data-ar="ابتداءً من 250,000$">Starting from $250,000</div>
         <ul class="invest-perks">
-          <li>Named structural column dedication</li>
-          <li>VIP seat on Advisory Council</li>
-          <li>Permanent engraved wall plaque</li>
-          <li>Private tours during construction</li>
-          <li>Annual benefactor gala access</li>
-          <li>Featured in official publication</li>
+          <li data-ar="تخصيص عمود هيكلي باسمك">Named structural column dedication</li>
+          <li data-ar="مقعد VIP في مجلس استشاري">VIP seat on Advisory Council</li>
+          <li data-ar="لوحة حائط دائمة منقوشة">Permanent engraved wall plaque</li>
+          <li data-ar="جولات خاصة خلال البناء">Private tours during construction</li>
+          <li data-ar="حضور حفل الرعاة السنوي">Annual benefactor gala access</li>
+          <li data-ar="مذكور في المطبوعات الرسمية">Featured in official publication</li>
         </ul>
-        <a href="#contact" class="invest-btn">Become a Benefactor</a>
+        <a href="#contact" class="invest-btn" data-ar="كن راعيًا">Become a Benefactor</a>
       </div>
       <div class="invest-card">
-        <div class="invest-tier">Legacy Patron</div>
+        <div class="invest-tier" data-ar="الراعي المؤسس">Legacy Patron</div>
         <div class="invest-amount">$1M+</div>
-        <div class="invest-range">One million and above</div>
+        <div class="invest-range" data-ar="مليون دولار فأكثر">One million and above</div>
         <ul class="invest-perks">
-          <li>Full room or wing naming rights</li>
-          <li>Founding Board membership</li>
-          <li>Permanent legacy exhibition panel</li>
-          <li>Private access to all facilities</li>
-          <li>Generational legacy documentation</li>
-          <li>Exclusive architectural tour program</li>
+          <li data-ar="حق تسمية غرفة أو جناح كامل">Full room or wing naming rights</li>
+          <li data-ar="عضوية مجلس المؤسسين">Founding Board membership</li>
+          <li data-ar="لوحة إرث دائمة">Permanent legacy exhibition panel</li>
+          <li data-ar="وصول خاص إلى جميع المرافق">Private access to all facilities</li>
+          <li data-ar="توثيق إرث عبر الأجيال">Generational legacy documentation</li>
+          <li data-ar="برنامج جولات معمارية حصرية">Exclusive architectural tour program</li>
         </ul>
-        <a href="#contact" class="invest-btn">Become a Patron</a>
+        <a href="#contact" class="invest-btn" data-ar="كن راعيًا">Become a Patron</a>
       </div>
     </div>
     <div class="impact-row reveal" style="transition-delay:0.4s">
-      <div class="impact-item"><span class="impact-num" data-target="15000">0</span><div class="impact-label">Daily Worshippers</div></div>
-      <div class="impact-item"><span class="impact-num" data-target="500">0</span><div class="impact-label">Students Served</div></div>
-      <div class="impact-item"><span class="impact-num" data-target="48">0</span><div class="impact-label">Thousand m² Total Area</div></div>
-      <div class="impact-item"><span class="impact-num" data-target="100">0</span><div class="impact-label">Year Legacy Target</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="15000">0</span><div class="impact-label" data-ar="مصلّون يومياً">Daily Worshippers</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="500">0</span><div class="impact-label" data-ar="طالبًا يستفيدون">Students Served</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="48">0</span><div class="impact-label" data-ar="ألف متر مربع إجمالي">Thousand m² Total Area</div></div>
+      <div class="impact-item"><span class="impact-num" data-target="100">0</span><div class="impact-label" data-ar="عامًا هدفًا للإرث">Year Legacy Target</div></div>
     </div>
   </div>
 </section>
@@ -1071,16 +1112,16 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <section id="team">
   <div class="container">
     <div class="team-intro reveal">
-      <span class="section-eyebrow">Leadership & Team</span>
-      <h2 class="section-title">The Minds Behind the <em>Vision</em></h2>
+      <span class="section-eyebrow" data-ar="القيادة والفريق">Leadership & Team</span>
+      <h2 class="section-title" data-ar="العقول خلف <em>الرؤية</em>">The Minds Behind the <em>Vision</em></h2>
       <div class="section-line"></div>
-      <p style="color:var(--text-muted);">An assembly of respected scholars, master architects, and seasoned project executives united by one purpose: to build something extraordinary.</p>
+      <p style="color:var(--text-muted);" data-ar="ثلة من العلماء المبجلين، والمعماريين المتميزين، وقادة المشاريع المخضرمين، تجمعهم غاية واحدة: بناء شيء استثنائي.">An assembly of respected scholars, master architects, and seasoned project executives united by one purpose: to build something extraordinary.</p>
     </div>
     <div class="team-grid">
-      <div class="team-card reveal" style="transition-delay:0s"><div class="team-avatar">👤</div><div class="team-name">Sheikh Abdullah Al-Rashid</div><div class="team-role">Spiritual Director</div><div class="team-bio">Renowned Islamic scholar with 30 years guiding major religious projects across the Gulf.</div></div>
-      <div class="team-card reveal" style="transition-delay:0.1s"><div class="team-avatar">👤</div><div class="team-name">Arch. Fatima Al-Zahrani</div><div class="team-role">Lead Architect</div><div class="team-bio">Award-winning architect, Royal Institute Fellow. Specializing in contemporary Islamic design.</div></div>
-      <div class="team-card reveal" style="transition-delay:0.2s"><div class="team-avatar">👤</div><div class="team-name">Eng. Omar Al-Mansouri</div><div class="team-role">Project Director</div><div class="team-bio">Led delivery of 12 landmark buildings across MENA. Expert in large-scale sacred structures.</div></div>
-      <div class="team-card reveal" style="transition-delay:0.3s"><div class="team-avatar">👤</div><div class="team-name">Dr. Noor Al-Salam</div><div class="team-role">Heritage & Art Director</div><div class="team-bio">Curator of Islamic geometric art with international museum exhibitions to her credit.</div></div>
+      <div class="team-card reveal" style="transition-delay:0s"><div class="team-avatar">👤</div><div class="team-name">الشيخ عبدالله الراشد</div><div class="team-role" data-ar="المدير الروحي">Spiritual Director</div><div class="team-bio" data-ar="عالم إسلامي مرموق بخبرة 30 عامًا في قيادة كبرى المشاريع الدينية في منطقة الخليج.">Renowned Islamic scholar with 30 years guiding major religious projects across the Gulf.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.1s"><div class="team-avatar">👤</div><div class="team-name">معم. فاطمة الزهراني</div><div class="team-role" data-ar="المعمارية الرئيسية">Lead Architect</div><div class="team-bio" data-ar="معمارية حاصلة على جوائز، زميلة في المعهد الملكي. متخصصة في التصميم الإسلامي المعاصر.">Award-winning architect, Royal Institute Fellow. Specializing in contemporary Islamic design.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.2s"><div class="team-avatar">👤</div><div class="team-name">م. عمر المنصوري</div><div class="team-role" data-ar="مدير المشروع">Project Director</div><div class="team-bio" data-ar="قاد تسليم 12 مبنى بارزًا في منطقة الشرق الأوسط وشمال إفريقيا. خبير في المنشآت المقدسة الكبرى.">Led delivery of 12 landmark buildings across MENA. Expert in large-scale sacred structures.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.3s"><div class="team-avatar">👤</div><div class="team-name">د. نور السلام</div><div class="team-role" data-ar="مديرة التراث والفن">Heritage & Art Director</div><div class="team-bio" data-ar="قيّمة فن هندسي إسلامي بمعارض متحفية دولية تحسب لها.">Curator of Islamic geometric art with international museum exhibitions to her credit.</div></div>
     </div>
   </div>
 </section>
@@ -1089,41 +1130,41 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <section id="community">
   <div class="container">
     <div class="reveal" style="max-width:640px; margin-bottom:72px;">
-      <span class="section-eyebrow">Community Life</span>
-      <h2 class="section-title">A Living Centre of <em>Faith &amp; Culture</em></h2>
+      <span class="section-eyebrow" data-ar="حياة المجتمع">Community Life</span>
+      <h2 class="section-title" data-ar="مركز حيّ <em>للإيمان والثقافة</em>">A Living Centre of <em>Faith &amp; Culture</em></h2>
       <div class="section-line"></div>
-      <p style="color:var(--text-muted);">The Grand Mosque will be open every day of the year, serving as the spiritual and cultural heartbeat of the community — offering prayer, education, family services, and interfaith engagement for all.</p>
+      <p style="color:var(--text-muted);" data-ar="سيفتح الجامع الكبير أبوابه كل يوم طوال العام، ليكون النبض الروحي والحضاري للمجتمع.">The Grand Mosque will be open every day of the year, serving as the spiritual and cultural heartbeat of the community — offering prayer, education, family services, and interfaith engagement for all.</p>
     </div>
     <div class="community-grid">
       <div class="comm-card reveal" style="transition-delay:0s">
         <div class="comm-icon">🕋</div>
-        <div class="comm-name">Five Daily Prayers</div>
-        <div class="comm-text">Congregational Salah held in the grand hall, welcoming up to 15,000 worshippers for every prayer.</div>
+        <div class="comm-name" data-ar="الصلوات الخمس">Five Daily Prayers</div>
+        <div class="comm-text" data-ar="صلاة الجماعة تُقام في القاعة الكبرى، تستقبل حتى 15,000 مصلٍّ في كل وقت.">Congregational Salah held in the grand hall, welcoming up to 15,000 worshippers for every prayer.</div>
       </div>
       <div class="comm-card reveal" style="transition-delay:0.08s">
         <div class="comm-icon">📖</div>
-        <div class="comm-name">Islamic Education</div>
-        <div class="comm-text">Quranic memorisation, Arabic language, Fiqh, and Islamic sciences for children, youth, and adults.</div>
+        <div class="comm-name" data-ar="التعليم الإسلامي">Islamic Education</div>
+        <div class="comm-text" data-ar="حفظ القرآن، اللغة العربية، الفقه، والعلوم الشرعية للأطفال والشباب والكبار.">Quranic memorisation, Arabic language, Fiqh, and Islamic sciences for children, youth, and adults.</div>
       </div>
       <div class="comm-card reveal" style="transition-delay:0.16s">
         <div class="comm-icon">🌙</div>
-        <div class="comm-name">Ramadan &amp; Eid</div>
-        <div class="comm-text">Tarawih, Qiyam al-Layl, community Iftar, and Eid celebrations uniting thousands in joyful worship.</div>
+        <div class="comm-name" data-ar="رمضان والعيدين">Ramadan &amp; Eid</div>
+        <div class="comm-text" data-ar="التراويح، قيام الليل، إفطار جماعي، واحتفالات العيد تجمع آلاف المصلين.">Tarawih, Qiyam al-Layl, community Iftar, and Eid celebrations uniting thousands in joyful worship.</div>
       </div>
       <div class="comm-card reveal" style="transition-delay:0.24s">
         <div class="comm-icon">🤍</div>
-        <div class="comm-name">Family &amp; Youth</div>
-        <div class="comm-text">Nikah ceremonies, pre-marital counselling, sisters&rsquo; programs, and youth mentorship initiatives.</div>
+        <div class="comm-name" data-ar="الأسرة والشباب">Family &amp; Youth</div>
+        <div class="comm-text" data-ar="عقود النكاح، إرشاد أسري، برامج الأخوات، ومبادرات توجيه الشباب.">Nikah ceremonies, pre-marital counselling, sisters&rsquo; programs, and youth mentorship initiatives.</div>
       </div>
       <div class="comm-card reveal" style="transition-delay:0.32s">
         <div class="comm-icon">📚</div>
-        <div class="comm-name">Research Library</div>
-        <div class="comm-text">A curated Islamic library housing rare manuscripts, scholarly works, and a comprehensive digital archive.</div>
+        <div class="comm-name" data-ar="مكتبة البحث">Research Library</div>
+        <div class="comm-text" data-ar="مكتبة إسلامية متخصصة تضم مخطوطات نادرة، مؤلفات علمية، وأرشيفًا رقميًا شاملًا.">A curated Islamic library housing rare manuscripts, scholarly works, and a comprehensive digital archive.</div>
       </div>
       <div class="comm-card reveal" style="transition-delay:0.4s">
         <div class="comm-icon">🌍</div>
-        <div class="comm-name">Cultural Events</div>
-        <div class="comm-text">Exhibitions, public lectures, interfaith dialogues, and international Islamic heritage showcases.</div>
+        <div class="comm-name" data-ar="الفعاليات الثقافية">Cultural Events</div>
+        <div class="comm-text" data-ar="معارض، محاضرات، حوار بين الأديان، وعروض التراث الإسلامي الدولية.">Exhibitions, public lectures, interfaith dialogues, and international Islamic heritage showcases.</div>
       </div>
     </div>
   </div>
@@ -1136,14 +1177,14 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     <div class="contact-grid">
       <div class="contact-info-block reveal">
         <div>
-          <span class="section-eyebrow">Contact Us</span>
-          <h2 class="contact-tagline">Begin your<br><em>sacred partnership</em><br>today.</h2>
+          <span class="section-eyebrow" data-ar="تواصل معنا">Contact Us</span>
+          <h2 class="contact-tagline" data-ar="ابدأ<br><em>شراكتك المقدسة</em><br>اليوم.">Begin your<br><em>sacred partnership</em><br>today.</h2>
         </div>
         <div class="contact-details">
-          <div class="contact-detail"><div class="contact-detail-icon">✉</div><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="mailto:invest@grandmosque.org" style="color:inherit;text-decoration:none;">invest@grandmosque.org</a></div></div></div>
-          <div class="contact-detail"><div class="contact-detail-icon">☏</div><div><div class="contact-detail-label">Phone</div><div class="contact-detail-value">+966 11 000 0000</div></div></div>
-          <div class="contact-detail"><div class="contact-detail-icon">◎</div><div><div class="contact-detail-label">Location</div><div class="contact-detail-value">Riyadh, Kingdom of Saudi Arabia</div></div></div>
-          <div class="contact-detail"><div class="contact-detail-icon">◷</div><div><div class="contact-detail-label">Office Hours</div><div class="contact-detail-value">Sun – Thu, 9:00 AM – 5:00 PM</div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">✉</div><div><div class="contact-detail-label" data-ar="البريد الإلكتروني">Email</div><div class="contact-detail-value"><a href="mailto:invest@grandmosque.org" style="color:inherit;text-decoration:none;">invest@grandmosque.org</a></div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">☏</div><div><div class="contact-detail-label" data-ar="هاتف">Phone</div><div class="contact-detail-value">+966 11 000 0000</div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">◎</div><div><div class="contact-detail-label" data-ar="الموقع">Location</div><div class="contact-detail-value" data-ar="الرياض، المملكة العربية السعودية">Riyadh, Kingdom of Saudi Arabia</div></div></div>
+          <div class="contact-detail"><div class="contact-detail-icon">◷</div><div><div class="contact-detail-label" data-ar="ساعات العمل">Office Hours</div><div class="contact-detail-value" data-ar="الأحد – الخميس، 9 ص – 5 م">Sun – Thu, 9:00 AM – 5:00 PM</div></div></div>
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.2s">
@@ -1152,25 +1193,25 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" placeholder="Your full name" required/></div>
-            <div class="form-group"><label class="form-label">Organization</label><input type="text" name="organization" class="form-input" placeholder="Company / Institution"/></div>
+            <div class="form-group"><label class="form-label" data-ar="الاسم الكامل">Full Name</label><input type="text" name="name" class="form-input" placeholder="Your full name" required/></div>
+            <div class="form-group"><label class="form-label" data-ar="المنظمة">Organization</label><input type="text" name="organization" class="form-input" placeholder="Company / Institution"/></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Email Address</label><input type="email" name="email" class="form-input" placeholder="email@example.com" required/></div>
-            <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" name="phone" class="form-input" placeholder="+966 …"/></div>
+            <div class="form-group"><label class="form-label" data-ar="البريد الإلكتروني">Email Address</label><input type="email" name="email" class="form-input" placeholder="email@example.com" required/></div>
+            <div class="form-group"><label class="form-label" data-ar="رقم الهاتف">Phone Number</label><input type="tel" name="phone" class="form-input" placeholder="+966 …"/></div>
           </div>
           <div class="form-group">
-            <label class="form-label">Investment Interest</label>
+            <label class="form-label" data-ar="الاهتمام الاستثماري">Investment Interest</label>
             <select name="investment_tier" class="form-select">
-              <option value="" disabled selected>Select a tier…</option>
-              <option>Foundation Partner — From $50,000</option>
-              <option>Pillar Benefactor — From $250,000</option>
-              <option>Legacy Patron — $1M+</option>
-              <option>Custom / Inquiry</option>
+              <option value="" disabled selected data-ar="اختر مستوى…">Select a tier…</option>
+              <option data-ar="شريك التأسيس — من 50,000$">Foundation Partner — From $50,000</option>
+              <option data-ar="راعي الأعمدة — من 250,000$">Pillar Benefactor — From $250,000</option>
+              <option data-ar="الراعي المؤسس — مليون+">Legacy Patron — $1M+</option>
+              <option data-ar="تواصل مباشر">Custom / Inquiry</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Message</label><textarea name="message" class="form-textarea" placeholder="Share your vision, questions, or how you'd like to be involved…"></textarea></div>
-          <button type="submit" class="form-submit"><span>Send Your Inquiry ✦</span></button>
+          <div class="form-group"><label class="form-label" data-ar="رسالتك">Message</label><textarea name="message" class="form-textarea" placeholder="Share your vision, questions, or how you'd like to be involved…"></textarea></div>
+          <button type="submit" class="form-submit"><span data-ar="إرسال الاستفسار ✦">Send Your Inquiry ✦</span></button>
         </form>
       </div>
     </div>
@@ -1181,19 +1222,19 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-logo">The Grand Mosque</div>
+      <div class="footer-logo" data-ar="الجامع الكبير">The Grand Mosque</div>
       <ul class="footer-links">
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#investment">Investment</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#vision" data-ar="الرؤية">Vision</a></li>
+        <li><a href="#architecture" data-ar="العمارة">Architecture</a></li>
+        <li><a href="#timeline" data-ar="المراحل">Timeline</a></li>
+        <li><a href="#investment" data-ar="الاستثمار">Investment</a></li>
+        <li><a href="#team" data-ar="الفريق">Team</a></li>
+        <li><a href="#community" data-ar="المجتمع">Community</a></li>
+        <li><a href="#contact" data-ar="تواصل">Contact</a></li>
       </ul>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 The Grand Mosque Foundation. All rights reserved.</span>
+      <span class="footer-copy" data-ar="© 2026 مؤسسة الجامع الكبير. جميع الحقوق محفوظة.">© 2026 The Grand Mosque Foundation. All rights reserved.</span>
       <span class="footer-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
     </div>
   </div>
@@ -1325,6 +1366,26 @@ window.addEventListener('load', () => {
   // Fade out loader after 5.4s (CSS progress finishes at 5.3s)
   setTimeout(() => loader.classList.add('hidden'), 5400);
 });
+
+// Language Switcher
+const langBtn = document.getElementById('langToggle');
+if (langBtn) {
+  langBtn.addEventListener('click', () => {
+    const isAr = document.documentElement.lang === 'ar';
+    document.documentElement.lang = isAr ? 'en' : 'ar';
+    document.documentElement.dir = isAr ? 'ltr' : 'rtl';
+    langBtn.dataset.active = isAr ? 'en' : 'ar';
+    document.querySelectorAll('[data-ar]').forEach(el => {
+      if (!el.dataset.en) el.dataset.en = el.innerHTML;
+      el.innerHTML = isAr ? el.dataset.en : el.dataset.ar;
+    });
+    // Swap input placeholders
+    document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+      if (!el.dataset.enPlaceholder) el.dataset.enPlaceholder = el.placeholder;
+      el.placeholder = isAr ? el.dataset.enPlaceholder : (el.dataset.arPlaceholder || el.dataset.enPlaceholder);
+    });
+  });
+}
 </script>
 </body>
 </html>
