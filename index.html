@@ -103,7 +103,7 @@ nav.scrolled {
 
 /* ── HERO ── */
 #hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
-.hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,10,14,0.62) 0%, rgba(8,10,14,0.28) 48%, rgba(8,10,14,0.88) 100%), url('https://images.unsplash.com/photo-1564769625561-e8f4e57cb1d4?auto=format&fit=crop&w=1920&q=80') center 30%/cover no-repeat; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,10,14,0.62) 0%, rgba(8,10,14,0.28) 48%, rgba(8,10,14,0.88) 100%), url('https://images.unsplash.com/photo-1564769625561-e8f4e57cb1d4?auto=format&fit=crop&w=1920&q=80') center 30%/cover no-repeat; background-color: #0D1017; }
 .hero-pattern { position: absolute; inset: 0; opacity: 0.045; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cdefs%3E%3Cpattern id='p' patternUnits='userSpaceOnUse' width='120' height='120'%3E%3Cpolygon points='60,5 115,32.5 115,87.5 60,115 5,87.5 5,32.5' fill='none' stroke='%23C9A84C' stroke-width='0.8'/%3E%3Cpolygon points='60,20 100,42 100,78 60,100 20,78 20,42' fill='none' stroke='%23C9A84C' stroke-width='0.4'/%3E%3Cline x1='60' y1='5' x2='60' y2='115' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='5' y1='32.5' x2='115' y2='87.5' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='115' y1='32.5' x2='5' y2='87.5' stroke='%23C9A84C' stroke-width='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23p)'/%3E%3C/svg%3E"); }
 
 .mosque-silhouette { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 1200px; opacity: 0.07; pointer-events: none; }
@@ -905,7 +905,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
   </div>
 
   <div class="scroll-indicator">
-    <span>Scroll</span>
+    <span data-ar="للأسفل">Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -916,7 +916,7 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     <div class="vision-grid">
       <div class="vision-image-wrap reveal">
         <div class="vision-img-placeholder">
-          <img src="https://images.unsplash.com/photo-1471922619906-e3b6aa3bbe41?auto=format&fit=crop&w=900&q=80" alt="Grand Mosque interior archway" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1471922619906-e3b6aa3bbe41?auto=format&fit=crop&w=900&q=80" alt="Grand Mosque interior archway" referrerpolicy="no-referrer" loading="eager">
           <div class="vision-img-corner corner-tl"></div>
           <div class="vision-img-corner corner-tr"></div>
           <div class="vision-img-corner corner-bl"></div>
@@ -963,23 +963,23 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
     </div>
     <div class="arch-grid">
       <div class="arch-card large reveal">
-        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=1200&q=80" alt="The Grand Dome and Prayer Hall" loading="lazy"></div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=1200&q=80" alt="The Grand Dome and Prayer Hall" referrerpolicy="no-referrer" loading="eager"></div>
         <div class="arch-overlay"></div>
         <div class="arch-tag" data-ar="الرئيسي">Flagship</div>
         <div class="arch-card-info"><div class="arch-card-label" data-ar="الهيكل الرئيسي">Main Structure</div><div class="arch-card-name" data-ar="القبّة الكبرى وقاعة الصلاة">The Grand Dome & Prayer Hall</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.1s">
-        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1542223616-00ce5e032d2f?auto=format&fit=crop&w=700&q=80" alt="The Four Minarets" loading="lazy"></div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1542223616-00ce5e032d2f?auto=format&fit=crop&w=700&q=80" alt="The Four Minarets" referrerpolicy="no-referrer" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-card-info"><div class="arch-card-label" data-ar="عمودي">Vertical</div><div class="arch-card-name" data-ar="المآذن الأربع">The Four Minarets</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.2s">
-        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1585036156171-384164a8ca16?auto=format&fit=crop&w=700&q=80" alt="Arabesque Interior Artistry" loading="lazy"></div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1585036156171-384164a8ca16?auto=format&fit=crop&w=700&q=80" alt="Arabesque Interior Artistry" referrerpolicy="no-referrer" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-card-info"><div class="arch-card-label" data-ar="الداخل">Interior</div><div class="arch-card-name" data-ar="فن الأرابيسك">Arabesque Artistry</div></div>
       </div>
       <div class="arch-card reveal" style="transition-delay:0.3s">
-        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1584515933487-779ad7a47bb4?auto=format&fit=crop&w=900&q=80" alt="The Grand Courtyard and Gardens" loading="lazy"></div>
+        <div class="arch-card-img-placeholder"><img src="https://images.unsplash.com/photo-1584515933487-779ad7a47bb4?auto=format&fit=crop&w=900&q=80" alt="The Grand Courtyard and Gardens" referrerpolicy="no-referrer" loading="lazy"></div>
         <div class="arch-overlay"></div>
         <div class="arch-card-info"><div class="arch-card-label" data-ar="الخارج">Outdoor</div><div class="arch-card-name" data-ar="الفناء الكبير والحدائق">The Grand Courtyard & Gardens</div></div>
       </div>
@@ -1118,10 +1118,10 @@ footer { background: var(--bg-2); border-top: 1px solid var(--divider); padding:
       <p style="color:var(--text-muted);" data-ar="ثلة من العلماء المبجلين، والمعماريين المتميزين، وقادة المشاريع المخضرمين، تجمعهم غاية واحدة: بناء شيء استثنائي.">An assembly of respected scholars, master architects, and seasoned project executives united by one purpose: to build something extraordinary.</p>
     </div>
     <div class="team-grid">
-      <div class="team-card reveal" style="transition-delay:0s"><div class="team-avatar">👤</div><div class="team-name">الشيخ عبدالله الراشد</div><div class="team-role" data-ar="المدير الروحي">Spiritual Director</div><div class="team-bio" data-ar="عالم إسلامي مرموق بخبرة 30 عامًا في قيادة كبرى المشاريع الدينية في منطقة الخليج.">Renowned Islamic scholar with 30 years guiding major religious projects across the Gulf.</div></div>
-      <div class="team-card reveal" style="transition-delay:0.1s"><div class="team-avatar">👤</div><div class="team-name">معم. فاطمة الزهراني</div><div class="team-role" data-ar="المعمارية الرئيسية">Lead Architect</div><div class="team-bio" data-ar="معمارية حاصلة على جوائز، زميلة في المعهد الملكي. متخصصة في التصميم الإسلامي المعاصر.">Award-winning architect, Royal Institute Fellow. Specializing in contemporary Islamic design.</div></div>
-      <div class="team-card reveal" style="transition-delay:0.2s"><div class="team-avatar">👤</div><div class="team-name">م. عمر المنصوري</div><div class="team-role" data-ar="مدير المشروع">Project Director</div><div class="team-bio" data-ar="قاد تسليم 12 مبنى بارزًا في منطقة الشرق الأوسط وشمال إفريقيا. خبير في المنشآت المقدسة الكبرى.">Led delivery of 12 landmark buildings across MENA. Expert in large-scale sacred structures.</div></div>
-      <div class="team-card reveal" style="transition-delay:0.3s"><div class="team-avatar">👤</div><div class="team-name">د. نور السلام</div><div class="team-role" data-ar="مديرة التراث والفن">Heritage & Art Director</div><div class="team-bio" data-ar="قيّمة فن هندسي إسلامي بمعارض متحفية دولية تحسب لها.">Curator of Islamic geometric art with international museum exhibitions to her credit.</div></div>
+      <div class="team-card reveal" style="transition-delay:0s"><div class="team-avatar">👤</div><div class="team-name" data-ar="الشيخ عبدالله الراشد">Sheikh Abdullah Al-Rashid</div><div class="team-role" data-ar="المدير الروحي">Spiritual Director</div><div class="team-bio" data-ar="عالم إسلامي مرموق بخبرة 30 عامًا في قيادة كبرى المشاريع الدينية في منطقة الخليج.">Renowned Islamic scholar with 30 years guiding major religious projects across the Gulf.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.1s"><div class="team-avatar">👤</div><div class="team-name" data-ar="م. فاطمة الزهراني">Arch. Fatima Al-Zahrani</div><div class="team-role" data-ar="المعمارية الرئيسية">Lead Architect</div><div class="team-bio" data-ar="معمارية حاصلة على جوائز، زميلة في المعهد الملكي. متخصصة في التصميم الإسلامي المعاصر.">Award-winning architect, Royal Institute Fellow. Specializing in contemporary Islamic design.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.2s"><div class="team-avatar">👤</div><div class="team-name" data-ar="م. عمر المنصوري">Eng. Omar Al-Mansouri</div><div class="team-role" data-ar="مدير المشروع">Project Director</div><div class="team-bio" data-ar="قاد تسليم 12 مبنى بارزًا في منطقة الشرق الأوسط وشمال إفريقيا. خبير في المنشآت المقدسة الكبرى.">Led delivery of 12 landmark buildings across MENA. Expert in large-scale sacred structures.</div></div>
+      <div class="team-card reveal" style="transition-delay:0.3s"><div class="team-avatar">👤</div><div class="team-name" data-ar="د. نور السلام">Dr. Noor Al-Salam</div><div class="team-role" data-ar="مديرة التراث والفن">Heritage & Art Director</div><div class="team-bio" data-ar="قيّمة فن هندسي إسلامي بمعارض متحفية دولية تحسب لها.">Curator of Islamic geometric art with international museum exhibitions to her credit.</div></div>
     </div>
   </div>
 </section>
